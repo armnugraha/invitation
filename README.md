@@ -137,3 +137,6 @@ https://www.google.com/maps?ll=43.12345,-76.12345&q=food&amp;z=14
 String search as destination
 
 https://www.google.com/maps?saddr=My+Location&daddr=Pinckney+Hugo+Group
+
+npm run build
+npm run deploy
