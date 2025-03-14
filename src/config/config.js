@@ -50,9 +50,9 @@ const config = {
   }],
 
   audio: {
-    src: "/audio/backsound.mp3",
-    title: "Fulfilling Humming",
-    artist: "Nasheed",
+    src: "https://raw.githubusercontent.com/armnugraha/invitation/main/public/audio/sound.mp3",
+    title: "Half My Deen",
+    artist: "Safe Adam",
     autoplay: true,
     loop: true,
     toastDuration: 5000,
