@@ -16,6 +16,7 @@ import {
 import { useEffect, useState } from "react";
 import { formatEventDate } from '@/lib/formatEventDate';
 import supabase from "../supabaseClient";
+import { safeBase64 } from '@/lib/base64';
 
 export default function Wishes() {
     const [showConfetti, setShowConfetti] = useState(false);
@@ -25,6 +26,7 @@ export default function Wishes() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [attendance, setAttendance] = useState('');
     const [isOpen, setIsOpen] = useState(false);
+    const [guestName, setGuestName] = useState('');
 
     const options = [
         { value: 'attending', label: 'Ya, saya akan hadir' },
@@ -65,7 +67,7 @@ export default function Wishes() {
         await new Promise(resolve => setTimeout(resolve, 1000));
         const { data, error } = await supabase
             .from('messages')
-            .insert([{ name: newName, attending: attendance, message: newWish }]); // Insert new user
+            .insert([{ name: guestName ?? newName, attending: attendance, message: newWish }]); // Insert new user
 
         if (error) {
             console.error('Error creating user:', error);
@@ -95,17 +97,58 @@ export default function Wishes() {
     };
 
     const getWhises = async () => {
-        const { data, error } = await supabase
-        .from("messages")
-        .select()
-        .range(0, 49)
-        .order("id", { ascending: false });
-
-        setWishes(data)
+        try {
+            const { data, error } = await supabase
+            .from("messages")
+            .select()
+            .range(0, 49)
+            .order("id", { ascending: false });
+            setWishes(data)
+        } catch (error) {
+        }
     };
+
+    function InputName() {
+        if (!guestName) {
+            return (
+                <div className="space-y-2">
+                    <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
+                        <User className="w-4 h-4" />
+                        <span>Nama Kamu</span>
+                    </div>
+                    <input
+                        type="text"
+                        placeholder="Masukan nama kamu..."
+                        className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-rose-100 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 transition-all duration-200 text-gray-700 placeholder-gray-400"
+                        required
+                        value={newName}
+                        onChange={(e) => setNewName(e.target.value)}
+                    />
+                </div>
+            );
+        }
+    }
+
+    function ShowGuest() {
+        return guestName ? guestName : 'Kamu';
+    }
 
     useEffect(() => {
         getWhises();
+
+        // Get guest parameter from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const guestParam = urlParams.get('guest');
+
+        if (guestParam) {
+            try {
+                const decodedName = safeBase64.decode(guestParam);
+                setGuestName(decodedName);
+            } catch (error) {
+                console.error('Error decoding guest name:', error);
+                setGuestName('');
+            }
+        }
     }, []);
 
     return (<>
@@ -232,20 +275,8 @@ export default function Wishes() {
                         <div className="backdrop-blur-sm bg-white/80 p-6 rounded-2xl border border-rose-100/50 shadow-lg">
                             <div className='space-y-2'>
                                 {/* Name Input */}
-                                <div className="space-y-2">
-                                    <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
-                                        <User className="w-4 h-4" />
-                                        <span>Nama Kamu</span>
-                                    </div>
-                                    <input
-                                        type="text"
-                                        placeholder="Masukan nama kamu..."
-                                        className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-rose-100 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 transition-all duration-200 text-gray-700 placeholder-gray-400"
-                                        required
-                                        value={newName}
-                                        onChange={(e) => setNewName(e.target.value)}
-                                    />
-                                </div>
+                                <InputName />
+
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -254,7 +285,7 @@ export default function Wishes() {
                                 >
                                     <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
                                         <Calendar className="w-4 h-4" />
-                                        <span>Apakah kamu hadir?</span>
+                                        <span>Apakah <ShowGuest /> akan hadir?</span>
                                     </div>
 
                                     {/* Custom Select Button */}
@@ -309,7 +340,7 @@ export default function Wishes() {
                                 <div className="space-y-2">
                                     <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
                                         <MessageCircle className="w-4 h-4" />
-                                        <span>Harapan kamu</span>
+                                        <span>Harapan <ShowGuest /></span>
                                     </div>
                                     <textarea
                                         placeholder="Kirimkan harapan dan doa untuk kedua mempelai..."
