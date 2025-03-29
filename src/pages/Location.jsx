@@ -99,10 +99,10 @@ export default function Location() {
                                     <p className="text-gray-600">{config.event.time}</p>
                                 </div>
 
-                                <div className="flex items-center space-x-4">
+                                {/* <div className="flex items-center space-x-4">
                                     <Phone className="w-5 h-5 text-rose-500" />
                                     <p className="text-gray-600">{config.event.phone}</p>
-                                </div>
+                                </div> */}
 
                                 {/* Action Buttons */}
                                 <div className="grid grid-cols-2 gap-2 pt-4">
