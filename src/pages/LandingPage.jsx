@@ -25,7 +25,7 @@ const LandingPage = ({ onOpenInvitation }) => (
         className="max-w-md w-full"
       >
         {/* Card Container */}
-        <div className="backdrop-blur-sm bg-white/50 p-8 md:p-10 rounded-2xl border border-rose-100/50 shadow-xl">
+        <div className="backdrop-blur-sm bg-white/50 p-8 md:p-10 rounded-2xl border border-rose-100/50 shadow-xl rose-bg">
           {/* Top Decorative Line */}
           <div className="flex items-center justify-center gap-3 mb-8">
             <div className="h-px w-16 bg-rose-200/50" />

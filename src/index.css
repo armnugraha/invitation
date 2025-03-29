@@ -72,3 +72,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+.rose-bg {
+  background-image: url(https://i.imgur.com/t6ffnbn.png), url(https://i.imgur.com/dGOOfnA.png);
+  background-position: left top, right top;
+  background-repeat: no-repeat;
+  background-size: 125px;
+}
