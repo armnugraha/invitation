@@ -1,4 +1,4 @@
-import { Calendar, Clock, Heart } from 'lucide-react'
+import { Calendar, Clock, Heart, BookHeart } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react';
 import config from '@/config/config';
@@ -104,7 +104,8 @@ export default function Hero() {
     };
     return (
         <>
-            <section id="home" className="min-h-screen flex flex-col items-center justify-center px-4 py-20 text-center relative overflow-hidden bg-gradient-to-b from-white via-rose-50/30 to-white">
+            {/* min-h-screen */}
+            <section id="home" className="flex flex-col items-center justify-center px-4 py-8 text-center relative overflow-hidden bg-gradient-to-b from-white via-rose-50/30 to-white">
                 {/* Decorative Background */}
                 <div className="absolute inset-0 overflow-hidden">
                     <div className="absolute top-0 left-0 w-32 h-32 bg-rose-100/50 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
@@ -124,132 +125,113 @@ export default function Hero() {
                         transition={{ delay: 0.2 }}
                         className="inline-block mx-auto"
                     >
-                        <span className="px-4 py-1 text-sm bg-rose-50 text-rose-600 rounded-full border border-rose-200">
-                            Catat Tanggal Penting Ini
+                        <span className="px-4 py-1 text-sm bg-rose-50 rounded-full border border-rose-200">
+                            بسم الله الرحمن الرحيم
                         </span>
+
+                        <p className="py-3 font-arabic text-lg text-gray-800">
+                            السلام عليكم ورحمة الله وبركاته
+                        </p>
+
+                        <p className="text-gray-500 max-w-md mx-auto">
+                            Dengan segala kerendahan hati dan ungkapan syukur atas karunia Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.
+                        </p>
+
                     </motion.div>
 
                     {/* Date Display */}
                     <div className="space-y-4">
-                        <motion.p
+                        {/* <motion.p
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.4 }}
                             className="text-gray-500 font-light italic"
                         >
                             InsyaAllah Kami Akan Menikah
-                        </motion.p>
-                        <motion.h2
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ delay: 0.6 }}
-                            className="text-5xl font-serif bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-pink-600"
-                        >
-                            {config.couple.groomName} & {config.couple.brideName}
-                        </motion.h2>
-                    </div>
+                        </motion.p> */}
 
-                    {/* Time and Date Info */}
-                    <motion.div
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.8 }}
-                        className="relative max-w-md mx-auto"
-                    >
-                        {/* Decorative Elements */}
-                        <div className="absolute inset-0 bg-gradient-to-b from-rose-50/50 to-white/50 backdrop-blur-md rounded-2xl" />
-
-                        <div className="relative px-8 py-10 rounded-2xl border border-rose-100/50">
-                            {/* Top Decorative Line */}
-                            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-px">
-                                <div className="w-32 h-[2px] bg-gradient-to-r from-transparent via-rose-200 to-transparent" />
-                            </div>
-
-                            {/* Content */}
-                            <div className="space-y-6 text-center">
-                                {/* Date and Time */}
-                                <div className="space-y-3">
-                                    <motion.div
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ delay: 0.9 }}
-                                        className="flex items-center justify-center space-x-2"
-                                    >
-                                        <Calendar className="w-4 h-4 text-rose-400" />
-                                        <span className="text-gray-700 font-medium">
-                                            {formatEventDate(config.event.dateTime, "full")}
-                                        </span>
-                                    </motion.div>
-
-                                    <motion.div
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ delay: 1 }}
-                                        className="flex items-center justify-center space-x-2"
-                                    >
-                                        <Clock className="w-4 h-4 text-rose-400" />
-                                        <span className="text-gray-700 font-medium">
-                                            {config.event.time}
-                                        </span>
-                                    </motion.div>
+                        <div className="relative backdrop-blur-sm bg-white/80 p-4 rounded-xl border border-rose-100/50 shadow-md">
+                            {/* Header */}
+                            <div className="flex items-start space-x-3 mb-2">
+                                {/* Avatar */}
+                                <div className="flex-shrink-0">
+                                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-rose-400 to-pink-400 flex items-center justify-center text-white text-sm font-medium">
+                                        {config.couple.groomFullName.charAt(0)}
+                                    </div>
                                 </div>
 
-                                {/* Divider */}
-                                <div className="flex items-center justify-center gap-3">
-                                    <div className="h-px w-12 bg-rose-200/50" />
-                                    <div className="w-2 h-2 rounded-full bg-rose-200" />
-                                    <div className="h-px w-12 bg-rose-200/50" />
+                                {/* Name, Time, and Attendance */}
+                                <div className="flex-1 min-w-0">
+                                    <div className="flex items-center space-x-2">
+                                        <h4 className="
+                                            font-serif bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-pink-600
+                                            text-2xl
+                                        ">
+                                            {config.couple.groomFullName}
+                                        </h4>
+                                    </div>
+                                    <div className="flex items-center space-x-1 text-gray-500 text-xs">
+                                        <BookHeart className="w-3 h-3" />
+                                        <time className="truncate">
+                                            Putri dari {config.couple.groomParents}
+                                        </time>
+                                    </div>
                                 </div>
-
-                                {/* Invitation Text */}
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ delay: 1.1 }}
-                                    className="space-y-2"
-                                >
-                                    <p className="text-gray-500 font-serif italic">
-                                        Kepada Yth.
-                                    </p>
-                                    <p className="text-gray-600 font-medium">
-                                        Bapak/Ibu/Saudara/i
-                                    </p>
-                                    <p className="text-rose-500 font-semibold text-lg">
-                                        {guestName ? guestName : "Tamu"}
-                                    </p>
-                                </motion.div>
                             </div>
 
-                            {/* Bottom Decorative Line */}
-                            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-px">
-                                <div className="w-32 h-[2px] bg-gradient-to-r from-transparent via-rose-200 to-transparent" />
+                            {/* Message */}
+                            <p className="text-gray-500 font-light italic text-sm leading-relaxed mb-2 line-clamp-3">
+                                dengan
+                            </p>
+
+                            <div className="flex items-start space-x-3 mb-2" style={{ justifySelf: 'end' }}>
+                                {/* Avatar */}
+                                {/* Name, Time, and Attendance */}
+                                <div className="flex-shrink-0 min-w-0">
+                                    <div className="flex items-center space-x-2" style={{ justifyContent: 'end' }}>
+                                        <h4 className="
+                                            font-serif bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-pink-600
+                                            text-2xl
+                                        ">
+                                            {config.couple.brideFullName}
+                                        </h4>
+                                    </div>
+                                    <div className="flex items-center space-x-1 text-gray-500 text-xs">
+                                        <time className="truncate">
+                                            Putra dari {config.couple.brideParents}
+                                        </time>
+                                        <BookHeart className="w-3 h-3" />
+                                    </div>
+                                </div>
+
+                                {/* Avatar */}
+                                <div className="flex-1">
+                                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-rose-400 to-pink-400 flex items-center justify-center text-white text-sm font-medium">
+                                        {config.couple.brideFullName.charAt(0)}
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        {/* Background Blur Circles */}
-                        <div className="absolute -top-4 -right-4 w-24 h-24 bg-rose-100/20 rounded-full blur-xl" />
-                        <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-rose-100/20 rounded-full blur-xl" />
-                    </motion.div>
-
-                    {/* Countdown Timer */}
-                    <CountdownTimer targetDate={config.event.dateTime} />
-
-                    {/* Decorative Elements */}
-                    <div className="pt-6 relative">
-                        <FloatingHearts />
-                        <motion.div
-                            animate={{
-                                scale: [1, 1.1, 1],
-                                rotate: [0, 5, -5, 0]
-                            }}
-                            transition={{
-                                duration: 2,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                            }}
+                        {/* <motion.h2
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ delay: 0.6 }}
                         >
-                            <Heart className="w-12 h-12 text-rose-500 mx-auto" fill="currentColor" />
-                        </motion.div>
+                            <p className="text-3xl font-serif bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-pink-600">
+                                {config.couple.groomFullName}
+                            </p>
+                            <p className="text-gray-500 max-w-md mx-auto">
+                                Putri dari {config.couple.groomParents}
+                            </p>
+                            <p className="text-gray-500 max-w-md mx-auto">dengan</p>
+                            <p className="text-3xl font-serif bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-pink-600">
+                                {config.couple.brideFullName}
+                            </p>
+                            <p className="text-gray-500 max-w-md mx-auto">
+                                Putra dari {config.couple.brideParents}
+                            </p>
+                        </motion.h2> */}
                     </div>
                 </motion.div>
             </section>
