@@ -103,8 +103,15 @@ export default function Wishes() {
             .select()
             .range(0, 49)
             .order("id", { ascending: false });
+            if (error) {
+                throw new Error(JSON.stringify(error));
+            }
             setWishes(data)
         } catch (error) {
+            const err = JSON.parse(error.message)
+            if (err.message == 'TypeError: Failed to fetch') {
+                console.log('hehe')
+            }
         }
     };
 
