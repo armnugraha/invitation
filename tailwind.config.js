@@ -20,9 +20,19 @@ export default {
 			},
 			fontFamily: {
 				serif: [
-					'Playfair Display',
 					'serif'
-				]
+				],
+				playfair: [
+					'Playfair Display'
+				],
+				vibes: ['"Great Vibes"', 'cursive'],
+				allura: ['"Allura"', 'cursive'],
+				alex: ['"Alex Brush"', 'cursive'],
+				parisienne: ['"Parisienne"', 'cursive'],
+				satisfy: ['"Satisfy"', 'cursive'],
+				kalam: ['"Kalam"', 'cursive'],
+				merienda: ['"Merienda"', 'cursive'],
+				sc: ['"Ysabeau SC"', 'cursive'],
 			},
 			colors: {
 				background: 'hsl(var(--background))',
@@ -56,7 +66,12 @@ export default {
 					foreground: 'hsl(var(--destructive-foreground))'
 				},
 				rose: {
-					'50': '#fff1f2'
+					50: '#FDF6F2',   // paling terang
+					200: '#F9EAE1',  // terang
+					400: '#F7E8E1',  // netral (warna originalmu)
+					500: '#EFD5C8',  // agak lebih bold
+					600: '#E1B8A7',  // makin bold
+					800: '#A35959',  // paling bold
 				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -85,12 +100,26 @@ export default {
 					to: {
 						transform: 'translateY(calc(-100% - var(--gap)))'
 					}
-				}
+				},
+				slide: {
+					'0%': { transform: 'translateX(0%)' },
+					'33%': { transform: 'translateX(-100%)' },
+					'66%': { transform: 'translateX(-200%)' },
+					'100%': { transform: 'translateX(-300%)' },
+				},
+				fadeIn: {
+					'0%': { opacity: 0, transform: 'scale(0.35)' },
+					'33%': { opacity: 0, transform: 'scale(0.55)' },
+					'66%': { opacity: 0, transform: 'scale(0.75)' },
+					'100%': { opacity: 1, transform: 'scale(1)' },
+				},
 			},
 			animation: {
 				marquee: 'marquee var(--duration) infinite linear',
-				'marquee-vertical': 'marquee-vertical var(--duration) linear infinite'
-			}
+				'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+				slide: 'slide 12s linear infinite',
+				'fade-in': 'fadeIn 10s ease-in forwards',
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

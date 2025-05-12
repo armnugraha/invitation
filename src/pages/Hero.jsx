@@ -105,135 +105,72 @@ export default function Hero() {
     return (
         <>
             {/* min-h-screen */}
-            <section id="home" className="flex flex-col items-center justify-center px-4 py-8 text-center relative overflow-hidden bg-gradient-to-b from-white via-rose-50/30 to-white">
+            <section id="home" className="flex flex-col items-center justify-center px-4 py-12 text-center relative overflow-hidden bg-gradient-to-b from-white via-rose-50/30 to-white draw_line">
                 {/* Decorative Background */}
                 <div className="absolute inset-0 overflow-hidden">
                     <div className="absolute top-0 left-0 w-32 h-32 bg-rose-100/50 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
                     <div className="absolute bottom-0 right-0 w-32 h-32 bg-pink-100/50 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2" />
                 </div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="space-y-6 relative z-10"
+                <div
+                    className="space-y-6 z-10 flower"
                 >
-                    {/* Special Date Badge */}
-                    <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{ delay: 0.2 }}
-                        className="inline-block mx-auto"
+                    {/* Opening */}
+                    <div
+                        className="inline-block mx-auto my space-y-4"
                     >
-                        <span className="px-4 py-1 text-sm bg-rose-50 rounded-full border border-rose-200">
-                            بسم الله الرحمن الرحيم
+                        <span className="py-3 text-rose-800 font-[amiri] text-xl">
+                            بِســــــمِ اللهِ الرحمن الرحيم
                         </span>
 
-                        <p className="py-3 font-arabic text-lg text-gray-800">
-                            السلام عليكم ورحمة الله وبركاته
+                        <p className="text-rose-800 font-[amiri] text-sm max-w-md mx-auto">
+                            وَمِنۡ اٰيٰتِهٖۤ اَنۡ خَلَقَ لَكُمۡ مِّنۡ اَنۡفُسِكُمۡ اَزۡوَاجًا لِّتَسۡكُنُوۡۤا اِلَيۡهَا وَجَعَلَ بَيۡنَكُمۡ مَّوَدَّةً وَّرَحۡمَةً  ؕ اِنَّ فِىۡ ذٰ لِكَ لَاٰيٰتٍ لِّقَوۡمٍ يَّتَفَكَّرُوۡنَ‏ ٢١
                         </p>
 
-                        <p className="text-gray-500 max-w-md mx-auto">
-                            Dengan segala kerendahan hati dan ungkapan syukur atas karunia Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.
+                        <p className="text-[#A66C6B] text-right text-xs max-w-md mx-auto">
+                            “Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir.” Ar-Rum: 21
                         </p>
 
-                    </motion.div>
-
-                    {/* Date Display */}
-                    <div className="space-y-4">
-                        {/* <motion.p
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.4 }}
-                            className="text-gray-500 font-light italic"
-                        >
-                            InsyaAllah Kami Akan Menikah
-                        </motion.p> */}
-
-                        <div className="relative backdrop-blur-sm bg-white/80 p-4 rounded-xl border border-rose-100/50 shadow-md">
-                            {/* Header */}
-                            <div className="flex items-start space-x-3 mb-2">
-                                {/* Avatar */}
-                                <div className="flex-shrink-0">
-                                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-rose-400 to-pink-400 flex items-center justify-center text-white text-sm font-medium">
-                                        {config.couple.groomFullName.charAt(0)}
-                                    </div>
-                                </div>
-
-                                {/* Name, Time, and Attendance */}
-                                <div className="flex-1 min-w-0">
-                                    <div className="flex items-center space-x-2">
-                                        <h4 className="
-                                            font-serif bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-pink-600
-                                            text-2xl
-                                        ">
-                                            {config.couple.groomFullName}
-                                        </h4>
-                                    </div>
-                                    <div className="flex items-center space-x-1 text-gray-500 text-xs">
-                                        <BookHeart className="w-3 h-3" />
-                                        <time className="truncate">
-                                            Putri dari {config.couple.groomParents}
-                                        </time>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Message */}
-                            <p className="text-gray-500 font-light italic text-sm leading-relaxed mb-2 line-clamp-3">
-                                dengan
+                        <div>
+                            <p className="py-3 text-rose-800 font-[amiri] text-xl">
+                                السلام عليكم ورحمة الله وبركاته
                             </p>
 
-                            <div className="flex items-start space-x-3 mb-2" style={{ justifySelf: 'end' }}>
-                                {/* Avatar */}
-                                {/* Name, Time, and Attendance */}
-                                <div className="flex-shrink-0 min-w-0">
-                                    <div className="flex items-center space-x-2" style={{ justifyContent: 'end' }}>
-                                        <h4 className="
-                                            font-serif bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-pink-600
-                                            text-2xl
-                                        ">
-                                            {config.couple.brideFullName}
-                                        </h4>
-                                    </div>
-                                    <div className="flex items-center space-x-1 text-gray-500 text-xs">
-                                        <time className="truncate">
-                                            Putra dari {config.couple.brideParents}
-                                        </time>
-                                        <BookHeart className="w-3 h-3" />
-                                    </div>
+                            <p className="text-gray-500 text-sm max-w-md mx-auto ">
+                                Dengan segala puji bagi Allah yang telah menciptakan makhlukNya berpasang-pasangan, ya Allah izinkanlah kami merangkai cinta yang Engkau telah berikan dalam perjanjian agung, Mitsaqan Ghaliza, yaitu sebuah ikatan pernikahan.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Card Couple Display */}
+                    <div className="space-y-4">
+                        <div className="relative backdrop-blur-sm bg-white/80 p-8 rounded-xl border border-rose-100/50 shadow-md bg-flower-card"
+                        >
+                            <div
+                                className="space-y-4"
+                            >
+                                <div className="">
+                                    <p className="text-3xl font-vibes text-[#A66C6B]">
+                                        {config.couple.groomFullName}
+                                    </p>
+                                    <p className="text-xs text-gray-500">Putri dari {config.couple.groomParents}</p>
                                 </div>
 
-                                {/* Avatar */}
-                                <div className="flex-1">
-                                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-rose-400 to-pink-400 flex items-center justify-center text-white text-sm font-medium">
-                                        {config.couple.brideFullName.charAt(0)}
-                                    </div>
+                                <div className="">
+                                    <img src="/images/ring-2.png" alt="Couple" className="w-[6vh] h-auto mx-auto" />
                                 </div>
+
+                                <div className="">
+                                    <p className="text-4xl font-parisienne text-[#A66C6B]">
+                                        {config.couple.brideFullName}
+                                    </p>
+                                    <p className="text-xs text-gray-500">Putra dari {config.couple.brideParents}</p>
+                                </div>
+
                             </div>
                         </div>
-
-                        {/* <motion.h2
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ delay: 0.6 }}
-                        >
-                            <p className="text-3xl font-serif bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-pink-600">
-                                {config.couple.groomFullName}
-                            </p>
-                            <p className="text-gray-500 max-w-md mx-auto">
-                                Putri dari {config.couple.groomParents}
-                            </p>
-                            <p className="text-gray-500 max-w-md mx-auto">dengan</p>
-                            <p className="text-3xl font-serif bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-pink-600">
-                                {config.couple.brideFullName}
-                            </p>
-                            <p className="text-gray-500 max-w-md mx-auto">
-                                Putra dari {config.couple.brideParents}
-                            </p>
-                        </motion.h2> */}
                     </div>
-                </motion.div>
+                </div>
             </section>
         </>
     )

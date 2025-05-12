@@ -8,6 +8,8 @@ import {
     User,
     MessageCircle,
     Send,
+    Frown,
+    Meh,
     Smile,
     CheckCircle,
     XCircle,
@@ -110,7 +112,6 @@ export default function Wishes() {
         } catch (error) {
             const err = JSON.parse(error.message)
             if (err.message == 'TypeError: Failed to fetch') {
-                console.log('hehe')
             }
         }
     };
@@ -138,6 +139,13 @@ export default function Wishes() {
 
     function ShowGuest() {
         return guestName ? guestName : 'Kamu';
+    }
+
+    function ShowAttendanceReaction() {
+        return attendance === 'attending' ? (
+            <Smile className="w-5 h-5 text-emerald-500" />) : (attendance === 'not-attending' ? (
+                <Frown className="w-5 h-5 text-rose-500" />) : (
+                    <Meh className="w-5 h-5 text-amber-500" />));
     }
 
     useEffect(() => {
@@ -179,18 +187,18 @@ export default function Wishes() {
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="inline-block text-rose-500 font-medium"
+                        className="text-2xl font-semibold text-[#A66C6B]"
                     >
-                        Kirimkan Doa dan Harapan Terbaik Anda
+                        Pesan dan Doa
                     </motion.span>
 
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
-                        className="text-4xl md:text-5xl font-serif text-gray-800"
+                        className="text-rose-500 font-medium"
                     >
-                        Pesan dan Doa
+                        Kirimkan Doa dan Harapan Terbaik Anda
                     </motion.h2>
 
                     {/* Decorative Divider */}
@@ -230,7 +238,7 @@ export default function Wishes() {
                                         <div className="flex items-start space-x-3 mb-2">
                                             {/* Avatar */}
                                             <div className="flex-shrink-0">
-                                                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-rose-400 to-pink-400 flex items-center justify-center text-white text-sm font-medium">
+                                                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-rose-600 to-rose-800 flex items-center justify-center text-white text-sm font-medium">
                                                     {wish.name[0].toUpperCase()}
                                                 </div>
                                             </div>
@@ -272,10 +280,7 @@ export default function Wishes() {
                     </AnimatePresence>
                 </div>
                 {/* Wishes Form */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 }}
+                <div
                     className="max-w-2xl mx-auto mt-12"
                 >
                     <form onSubmit={handleSubmitWish} className="relative">
@@ -284,15 +289,12 @@ export default function Wishes() {
                                 {/* Name Input */}
                                 <InputName />
 
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.1 }}
+                                <div
                                     className="space-y-2 relative"
                                 >
                                     <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
                                         <Calendar className="w-4 h-4" />
-                                        <span>Apakah <ShowGuest /> akan hadir?</span>
+                                        <span>Apakah <ShowGuest /> akan hadir?</span> <ShowAttendanceReaction />
                                     </div>
 
                                     {/* Custom Select Button */}
@@ -342,7 +344,7 @@ export default function Wishes() {
                                             </motion.div>
                                         )}
                                     </AnimatePresence>
-                                </motion.div>
+                                </div>
                                 {/* Wish Textarea */}
                                 <div className="space-y-2">
                                     <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
@@ -377,7 +379,7 @@ export default function Wishes() {
                             </div>
                         </div>
                     </form>
-                </motion.div>
+                </div>
             </div>
         </section>
     </>)

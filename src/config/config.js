@@ -23,33 +23,33 @@ const config = {
     date: "2025-06-28",
     time: "16:22",
     timezone: "WIB",
-    dateTime: "2025-06-28T01:00:00Z", // ISO 8601 format
-    name: "Keboen Djati Diri",
-    address: "Jl. AMD Desa Rancakalapa, Panongan, Kec. Panongan, Kabupaten Tangerang, Banten 15710",
-    time: "08:00 - 13:00 WIB",
+    dateTime: "2025-06-28T00:00:00Z", // ISO 8601 format
+    name: "THE 1997 COFFEE AND SPACE",
+    address: "Jl. Raya Panongan, Panongan, Kec. Panongan, Kabupaten Tangerang, Banten 15710",
+    time: "07:00 - 12:00 WIB",
     phone: "+62 123 4567 890",
-    maps_url: "https://maps.google.com/?q=Keboen Djati Diri",
-    maps_embed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.88390773576!2d106.51794047499914!3d-6.2789901614632555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e4207221c760d65%3A0xf0b9fe1a999bb008!2sKeboen%20Djati%20Diri!5e0!3m2!1sid!2sid!4v1743213495336!5m2!1sid!2sid",
-    direction: "https://www.google.com/maps?saddr=My+Location&daddr=-6.2789902,106.5179405",
-    latitude: -6.2789902, // Replace with actual coordinates
-    longitude: 106.5179405 // Replace with actual coordinates
+    maps_url: "https://maps.google.com/?q=THE 1997 COFFEE AND SPACE",
+    maps_embed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4084.4430296048076!2d106.5283479469167!3d-6.280132405172213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e4207f897418075%3A0x54003124ceb1f08d!2sThe%201997%20Coffee%20and%20Space!5e0!3m2!1sid!2sid!4v1745654103444!5m2!1sid!2sid5&output=embed&disableDefaultUI=true&zoomControl=false&mapTypeControl=false&streetViewControl=false&fullscreenControl=false",
+    direction: "https://www.google.com/maps?saddr=My+Location&daddr=-6.2801131,106.5309373",
+    latitude: -6.2801131, // Replace with actual coordinates
+    longitude: 106.5309373 // Replace with actual coordinates
   },
 
   eventDetails: [{
-    title: "Akad Nikah",
+    title: "Akad Nikah (Khusus Keluarga)",
     date: "2025-06-28",
-    startTime: "08:00",
+    startTime: "07:00",
     endTime: "09:00",
     timeZone: "Asia/Jakarta",
-    location: "Keboen Djati Diri",
+    location: "THE 1997 COFFEE AND SPACE",
     description: "We invite you to join us in celebrating our wedding ceremony."
   }, {
     title: "Resepsi Nikah",
     date: "2025-06-28",
-    startTime: "10:00",
-    endTime: "13:00",
+    startTime: "09:00",
+    endTime: "11:00",
     timeZone: "Asia/Jakarta",
-    location: "Keboen Djati Diri",
+    location: "THE 1997 COFFEE AND SPACE",
     description: "We invite you to join us in celebrating our wedding ceremony."
   }],
 

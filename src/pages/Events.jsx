@@ -1,29 +1,14 @@
 import EventCards from '@/components/EventsCard'
+import ScrollCard from '@/components/ScrollCard'
+
 import config from '@/config/config'
 import { motion } from 'framer-motion'
-import { Calendar, Clock, Heart } from 'lucide-react'
+import { Calendar, Clock, Heart, NavigationIcon, ExternalLink, BookHeart } from 'lucide-react'
 import { formatEventDate } from '@/lib/formatEventDate';
 import { safeBase64 } from '@/lib/base64';
 import { useEffect, useState } from 'react';
 
 export default function Events() {
-    const [guestName, setGuestName] = useState('');
-
-    useEffect(() => {
-        // Get guest parameter from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const guestParam = urlParams.get('guest');
-
-        if (guestParam) {
-            try {
-                const decodedName = safeBase64.decode(guestParam);
-                setGuestName(decodedName);
-            } catch (error) {
-                console.error('Error decoding guest name:', error);
-                setGuestName('');
-            }
-        }
-    }, []);
     const CountdownTimer = ({ targetDate }) => {
         const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
         function calculateTimeLeft() {
@@ -48,57 +33,17 @@ export default function Events() {
             return () => clearInterval(timer);
         }, [targetDate]);
         return (
-            <div className="grid grid-cols-4 gap-4 mt-8">
+            <div className="grid grid-cols-4 gap-4 mt-4">
                 {Object.keys(timeLeft).map((interval) => (
-                    <motion.div
+                    <div
                         key={interval}
-                        initial={{ scale: 0.5, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        className="flex flex-col items-center p-3 bg-white/80 backdrop-blur-sm rounded-xl border border-rose-100"
+                        className="flex flex-col items-center p-2 bg-white/80 backdrop-blur-sm rounded-xl border border-rose-100"
                     >
-                        <span className="text-2xl font-bold text-rose-600">
+                        <span className="text-lg font-bold text-rose-600">
                             {timeLeft[interval]}
                         </span>
                         <span className="text-xs text-gray-500 capitalize">{interval}</span>
-                    </motion.div>
-                ))}
-            </div>
-        );
-    };
-    const FloatingHearts = () => {
-        return (
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {[...Array(8)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        initial={{
-                            opacity: 0,
-                            scale: 0,
-                            x: Math.random() * window.innerWidth,
-                            y: window.innerHeight
-                        }}
-                        animate={{
-                            opacity: [0, 1, 1, 0],
-                            scale: [0, 1, 1, 0.5],
-                            x: Math.random() * window.innerWidth,
-                            y: -100
-                        }}
-                        transition={{
-                            duration: 4,
-                            repeat: Infinity,
-                            delay: i * 0.8,
-                            ease: "easeOut"
-                        }}
-                        className="absolute"
-                    >
-                        <Heart
-                            className={`w-${Math.random() * 3 + 3} h-${Math.random() * 3 + 3} ${i % 3 === 0 ? 'text-rose-400' :
-                                i % 3 === 1 ? 'text-pink-400' :
-                                    'text-red-400'
-                                }`}
-                            fill="currentColor"
-                        />
-                    </motion.div>
+                    </div>
                 ))}
             </div>
         );
@@ -116,93 +61,152 @@ export default function Events() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
-                className="relative z-10 container mx-auto px-4 py-20"
+                className="relative z-10 container mx-auto px-4 py-8 pb-0"
             >
                 {/* Section Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
+                <div
                     className="text-center space-y-4 mb-16"
                 >
-                    <motion.span
+                    <h2
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="inline-block text-rose-500 font-medium mb-2"
+                        transition={{ duration: 0.1, delay: 0.4 }}
+                        className="text-2xl font-semibold text-[#A66C6B]"
                     >
-                        Catat Tanggal Penting Ini
-                    </motion.span>
+                        Waktu & Tempat
+                    </h2>
+
+                    <p className="text-gray-600 text-sm italic">
+                        Dengan izin Allah ﷻ, berikut adalah waktu dan tempat pelaksanaan akad & resepsi pernikahan kami.
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-8 text-left">
+                        <div className="space-y-2">
+                            <div className="flex justify-center">
+                                <motion.div
+                                    animate={{
+                                        scale: [1, 1.2, 1],
+                                        rotate: [0, 6, -6, 0]
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                    }}
+                                >
+                                    🕊
+                                </motion.div>
+                                <h3 className="font-semibold text-rose-600 text-lg pl-2" style={{lineHeight: '1.5rem'}} >Akad Nikah <span className="text-xs">(Khusus Keluarga)</span></h3>
+                            </div> 
+                            <div className="space-y-2 text-sm">
+                                <p className="text-gray-500 flex items-center gap-2"><Calendar className="w-5 h-5 text-rose-500" /> {formatEventDate(config.eventDetails[0].date)}</p>
+                                <p className="text-gray-500 flex items-center gap-2"><Clock className="w-5 h-5 text-rose-500" /> {config.eventDetails[0].startTime} WIB s.d selesai</p>
+                            </div>
+                        </div>
+                        <div className="space-y-2">
+                            <div className="flex justify-center">
+                                <motion.div
+                                    animate={{
+                                        scale: [1, 1.1, 1],
+                                        rotate: [0, 5, -5, 0]
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                    }}
+                                >
+                                    🎉
+                                </motion.div>
+                                <h3 className="font-semibold text-rose-600 text-lg pl-2" style={{lineHeight: '1.5rem'}} >Walimatul ‘Ursy  <span className="text-xs">(Resepsi)</span></h3>
+                            </div>
+                            <div className="space-y-2 text-sm">
+                                <p className="text-gray-500 flex items-center gap-2"><Calendar className="w-5 h-5 text-rose-500" /> {formatEventDate(config.eventDetails[1].date)}</p>
+                                <p className="text-gray-500 flex items-center gap-2"><Clock className="w-5 h-5 text-rose-500" /> {config.eventDetails[1].startTime} - {config.eventDetails[1].endTime} WIB</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p className="text-sm text-gray-500 pt-4">Bertempat di:</p>
+                    <div className="bg-white rounded-2xl shadow-lg border border-gray-100">
+                        <div className="grid grid-cols-2 gap-4">
+                            <div className="space-y-4 p-4">
+                                <h3 className="text-xl text-left font-serif text-gray-800">{config.event.name}</h3>
+
+                                <div className="flex items-start space-x-4">
+                                    <p className="text-gray-600 text-sm text-left flex-1">{config.event.address}</p>
+                                </div>
+
+                                {/* Action Buttons */}
+                                <div className="grid grid-cols-2 gap-2">
+                                    <motion.a
+                                        href={config.event.direction}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
+                                        className="flex items-center justify-center gap-1.5 bg-rose-500 text-white px-2 py-2 rounded-lg hover:bg-rose-600 transition-colors text-xs"
+                                    >
+                                        <span>Directions</span>
+                                    </motion.a>
+
+                                    <motion.a
+                                        href={config.event.maps_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
+                                        className="flex items-center justify-center gap-1.5 bg-white text-gray-600 px-2 py-2 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors text-xs"
+                                    >
+                                        <span>View Map</span>
+                                    </motion.a>
+                                </div>
+                            </div>
+                            <div className="space-y-2">
+                                <iframe
+                                    src={config.event.maps_embed}
+                                    width="100%"
+                                    height="300"
+                                    allowFullScreen=""
+                                    loading="lazy"
+                                    className="rounded-r-xl shadow-lg border border-gray-100"
+                                    style={{
+                                        pointerEvents: 'none',
+                                        filter: 'grayscale(20%) contrast(90%)',
+                                    }}
+                                ></iframe>
+                            </div>
+                        </div>
+                    </div>
 
                     {/* Time and Date Info */}
-                    <motion.div
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.8 }}
-                        className="relative max-w-md mx-auto"
+                    <div
+                        className="relative max-w-md mx-auto !my-8"
                     >
                         {/* Decorative Elements */}
                         <div className="absolute inset-0 bg-gradient-to-b from-rose-50/50 to-white/50 backdrop-blur-md rounded-2xl" />
 
-                        <div className="relative px-8 py-10 rounded-2xl border border-rose-100/50">
+                        <div className="relative px-8 py-5 rounded-2xl border border-rose-100/50">
                             {/* Top Decorative Line */}
                             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-px">
                                 <div className="w-32 h-[2px] bg-gradient-to-r from-transparent via-rose-200 to-transparent" />
                             </div>
 
                             {/* Content */}
-                            <div className="space-y-6 text-center">
-                                {/* Date and Time */}
-                                <div className="space-y-3">
-                                    <motion.div
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ delay: 0.9 }}
-                                        className="flex items-center justify-center space-x-2"
-                                    >
-                                        <Calendar className="w-4 h-4 text-rose-400" />
-                                        <span className="text-gray-700 font-medium">
-                                            {formatEventDate(config.event.dateTime, "full")}
-                                        </span>
-                                    </motion.div>
-
-                                    <motion.div
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ delay: 1 }}
-                                        className="flex items-center justify-center space-x-2"
-                                    >
-                                        <Clock className="w-4 h-4 text-rose-400" />
-                                        <span className="text-gray-700 font-medium">
-                                            {config.event.time}
-                                        </span>
-                                    </motion.div>
-                                </div>
-
-                                {/* Divider */}
-                                <div className="flex items-center justify-center gap-3">
-                                    <div className="h-px w-12 bg-rose-200/50" />
-                                    <div className="w-2 h-2 rounded-full bg-rose-200" />
-                                    <div className="h-px w-12 bg-rose-200/50" />
-                                </div>
-
-                                {/* Invitation Text */}
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ delay: 1.1 }}
-                                    className="space-y-2"
+                            <div className="space-y-4 text-center">
+                                <p className="text-sm text-gray-500">Menuju hari bahagia:</p>
+                                {/* Decorative Line */}
+                                <div
+                                    className="flex items-center justify-center gap-4 mt-6"
                                 >
-                                    <p className="text-gray-500 font-serif italic">
-                                        Kepada Yth.
-                                    </p>
-                                    <p className="text-gray-600 font-medium">
-                                        Bapak/Ibu/Saudara/i
-                                    </p>
-                                    <p className="text-rose-500 font-semibold text-lg">
-                                        {guestName ? guestName : "Tamu"}
-                                    </p>
-                                </motion.div>
+                                    <div className="h-[1px] w-12 bg-rose-200" />
+                                    <div className="text-rose-400">
+                                        <Heart className="w-4 h-4" fill="currentColor" />
+                                    </div>
+                                    <div className="h-[1px] w-12 bg-rose-200" />
+                                </div>
+                                {/* Countdown Timer */}
+                                <CountdownTimer targetDate={config.event.dateTime} />
                             </div>
 
                             {/* Bottom Decorative Line */}
@@ -214,75 +218,34 @@ export default function Events() {
                         {/* Background Blur Circles */}
                         <div className="absolute -top-4 -right-4 w-24 h-24 bg-rose-100/20 rounded-full blur-xl" />
                         <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-rose-100/20 rounded-full blur-xl" />
-                    </motion.div>
-
-                    {/* Countdown Timer */}
-                    <CountdownTimer targetDate={config.event.dateTime} />
-
-                    {/* Decorative Elements */}
-                    <div className="pt-6 relative">
-                        <FloatingHearts />
-                        <motion.div
-                            animate={{
-                                scale: [1, 1.1, 1],
-                                rotate: [0, 5, -5, 0]
-                            }}
-                            transition={{
-                                duration: 2,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                            }}
-                        >
-                            <Heart className="w-12 h-12 text-rose-500 mx-auto" fill="currentColor" />
-                        </motion.div>
                     </div>
 
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="text-4xl md:text-5xl font-serif text-gray-800 leading-tight"
-                    >
-                        Rangkaian Acara Pernikahan
-                    </motion.h2>
+                    <div className="space-y-4">
+                        <h2
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.1, delay: 0.4 }}
+                            className="text-2xl font-semibold text-[#A66C6B]"
+                        >
+                            Adab Walimah
+                        </h2>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                        className="text-gray-500 max-w-md mx-auto"
-                    >
-                        Kami Mengundang Anda untuk Merayakan Hari Istimewa Sebagai Awal Perjalanan Cinta Kami
-                    </motion.p>
-
-                    {/* Decorative Line */}
-                    <motion.div
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        transition={{ delay: 0.5 }}
-                        className="flex items-center justify-center gap-4 mt-6"
-                    >
-                        <div className="h-[1px] w-12 bg-rose-200" />
-                        <div className="text-rose-400">
-                            <Heart className="w-4 h-4" fill="currentColor" />
+                        {/* Decorative Line */}
+                        <div
+                            className="flex items-center justify-center gap-4 mt-6"
+                        >
+                            <div className="h-[1px] w-12 bg-rose-200" />
+                            <div className="text-rose-400">
+                                <BookHeart className="w-4 h-4" />
+                            </div>
+                            <div className="h-[1px] w-12 bg-rose-200" />
                         </div>
-                        <div className="h-[1px] w-12 bg-rose-200" />
-                    </motion.div>
-                </motion.div>
 
-                {/* Events Grid */}
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                    className="max-w-2xl mx-auto"
-                >
-                    <EventCards events={config.eventDetails} />
-                </motion.div>
+                        {/* Card Adab */}
+                        <ScrollCard />
+                    </div>
+                </div>
             </motion.div>
-
-            {/* Decorative Bottom Pattern */}
-            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
         </section>
     </>)
 }

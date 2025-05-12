@@ -53,6 +53,9 @@ function App() {
         {/* Additional Meta Tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#FDA4AF" /> {/* Rose-300 color */}
+
+        {/* Font Family */}
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Allura&family=Alex+Brush&family=Parisienne&family=Satisfy&family=Kalam&family=Merienda&family=Ysabeau+SC&display=swap" rel="stylesheet"></link>
       </Helmet>
 
       <AnimatePresence mode='wait'>
