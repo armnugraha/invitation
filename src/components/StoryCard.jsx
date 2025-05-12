@@ -40,7 +40,7 @@ const StoryCard = () => {
       } else {
         clearInterval(typingInterval); // stop saat selesai
       }
-    }, 150); // ketik per 35ms (bisa disesuaikan kecepatannya)
+    }, 550); // ketik per 35ms (bisa disesuaikan kecepatannya)
 
     return () => clearInterval(typingInterval);
   }, []);
@@ -62,7 +62,7 @@ const StoryCard = () => {
                     className="absolute top-2/2 left-1/2 w-40 h-60 object-cover rounded-xl shadow-xl transition-all duration-500 ease-in-out hover:scale-105 hover:-translate-y-2 opacity-0 animate-fade-in"
                     style={{
                     transform: `translate(-50%, -50%) rotate(${rotations[i % rotations.length]}deg) translateX(${offsets[i % offsets.length]}px)`,
-                    animationDelay: `${i * 4000}ms`,
+                    animationDelay: `${i * 9000}ms`,
                     zIndex: i,
                     }}
                 />
