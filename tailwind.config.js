@@ -118,7 +118,7 @@ export default {
 				marquee: 'marquee var(--duration) infinite linear',
 				'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
 				slide: 'slide 12s linear infinite',
-				'fade-in': 'fadeIn 12s ease-in forwards',
+				'fade-in': 'fadeIn 10s ease-in forwards',
 			},
 		}
 	},
