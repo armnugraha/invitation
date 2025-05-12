@@ -40,7 +40,7 @@ const StoryCard = () => {
       } else {
         clearInterval(typingInterval); // stop saat selesai
       }
-    }, 550); // ketik per 35ms (bisa disesuaikan kecepatannya)
+    }, 300); // ketik per 35ms (bisa disesuaikan kecepatannya)
 
     return () => clearInterval(typingInterval);
   }, []);
