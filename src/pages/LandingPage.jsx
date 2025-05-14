@@ -49,7 +49,7 @@ export default function LandingPage({onOpenInvitation}) {
             {/* Title */}
             <div className="text-center space-y-6 px-6 py-3">
               <p className="text-gray-700 font-medium">
-                The Wedding Of
+                The Wedding of
               </p>
             </div>
 

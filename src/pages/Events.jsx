@@ -118,7 +118,7 @@ export default function Events() {
                                 >
                                     🎉
                                 </motion.div>
-                                <h3 className="font-semibold text-rose-600 text-lg pl-2" style={{lineHeight: '1.5rem'}} >Walimatul ‘Ursy  <span className="text-xs">(Resepsi)</span></h3>
+                                <h3 className="font-semibold text-rose-600 text-lg pl-2" style={{lineHeight: '1.5rem'}} >Walimatul ‘Urs <span className="text-xs">(Resepsi)</span></h3>
                             </div>
                             <div className="space-y-2 text-sm">
                                 <p className="text-gray-500 flex items-center gap-2"><Calendar className="w-5 h-5 text-rose-500" /> {formatEventDate(config.eventDetails[1].date)}</p>
