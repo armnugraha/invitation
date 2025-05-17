@@ -12,10 +12,6 @@ const StoryCard = () => {
     "/images/photo3.jpeg",
     "/images/photo4.jpg",
     "/images/photo6.jpg",
-    "/images/photo1.jpeg",
-    "/images/photo2.jpg",
-    "/images/photo3.jpeg",
-    "/images/photo11.png",
     "/images/photo12.png",
     "/images/photo15.png",
     "/images/photo13.jpeg",
@@ -65,7 +61,7 @@ const StoryCard = () => {
                     className="absolute top-2/2 left-1/2 w-40 h-60 object-cover rounded-xl shadow-xl transition-all duration-500 ease-in-out hover:scale-105 hover:-translate-y-2 opacity-0 animate-fade-in"
                     style={{
                     transform: `translate(-50%, -50%) rotate(${rotations[i % rotations.length]}deg) translateX(${offsets[i % offsets.length]}px)`,
-                    animationDelay: `${i * 9500}ms`,
+                    animationDelay: `${i * 6000}ms`,
                     zIndex: i,
                     }}
                 />
