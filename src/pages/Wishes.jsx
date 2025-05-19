@@ -29,6 +29,13 @@ export default function Wishes() {
     const [attendance, setAttendance] = useState('');
     const [isOpen, setIsOpen] = useState(false);
     const [guestName, setGuestName] = useState('');
+    const profileBackgroundColors = [
+        "#F9AFAF", "#A8D8EA", "#FFE0AC", "#B5EAD7", "#C7CEEA",
+        "#FFDAC1", "#FFB7B2", "#E2F0CB", "#C9C9FF", "#FFABAB",
+        "#FFD6A5", "#FDFFB6", "#CAFFBF", "#9BF6FF", "#A0C4FF",
+        "#BDB2FF", "#FFC6FF", "#FFCBF2", "#A3C4F3", "#D5AAFF",
+        "#FFF1C1", "#B6E2D3", "#FFDEE9", "#DEFDE0", "#D0F4DE"
+    ];
 
     const options = [
         { value: 'attending', label: 'Ya, saya akan hadir' },
@@ -217,9 +224,9 @@ export default function Wishes() {
                 {/* Wishes List */}
                 <div className="max-w-2xl mx-auto space-y-6">
                     <AnimatePresence>
-                        <Marquee speed={20}
+                        <Marquee speed={100}
                             gradient={false}
-                            className="[--duration:20s] py-2">
+                            className="[--duration:100s] py-2">
                             {wishes.map((wish, index) => (
                                 <motion.div
                                     key={wish.id}
@@ -230,7 +237,8 @@ export default function Wishes() {
                                     className="group relative w-[280px]"
                                 >
                                     {/* Background gradient */}
-                                    <div className="absolute inset-0 bg-gradient-to-r from-rose-100/50 to-pink-100/50 rounded-xl transform transition-transform group-hover:scale-[1.02] duration-300" />
+                                    {/* bg-gradient-to-r from-rose-100/50 to-pink-100/50 */}
+                                    <div className="absolute inset-0 rounded-xl transform transition-transform group-hover:scale-[1.02] duration-300" />
 
                                     {/* Card content */}
                                     <div className="relative backdrop-blur-sm bg-white/80 p-4 rounded-xl border border-rose-100/50 shadow-md">
@@ -238,7 +246,8 @@ export default function Wishes() {
                                         <div className="flex items-start space-x-3 mb-2">
                                             {/* Avatar */}
                                             <div className="flex-shrink-0">
-                                                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-rose-600 to-rose-800 flex items-center justify-center text-white text-sm font-medium">
+                                                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-medium`}
+                                                    style={{ backgroundColor: profileBackgroundColors[index] }}>
                                                     {wish.name[0].toUpperCase()}
                                                 </div>
                                             </div>
@@ -261,7 +270,7 @@ export default function Wishes() {
                                         </div>
 
                                         {/* Message */}
-                                        <p className="text-gray-600 text-sm leading-relaxed mb-2 line-clamp-3">
+                                        <p className="text-gray-600 text-sm leading-relaxed mb-2 line-clamp-6">
                                             {wish.message}
                                         </p>
 
