@@ -34,7 +34,32 @@ export default function Wishes() {
         "#FFDAC1", "#FFB7B2", "#E2F0CB", "#C9C9FF", "#FFABAB",
         "#FFD6A5", "#FDFFB6", "#CAFFBF", "#9BF6FF", "#A0C4FF",
         "#BDB2FF", "#FFC6FF", "#FFCBF2", "#A3C4F3", "#D5AAFF",
-        "#FFF1C1", "#B6E2D3", "#FFDEE9", "#DEFDE0", "#D0F4DE"
+        "#FFF1C1", "#B6E2D3", "#FFDEE9", "#DEFDE0", "#D0F4DE",
+        '#FF5733', '#33B5FF', '#8E44AD', '#2ECC71', '#E67E22', '#1ABC9C', '#F1C40F', '#D35400',
+        '#C0392B', '#2980B9', '#27AE60', '#9B59B6', '#34495E', '#E74C3C', '#7F8C8D', '#16A085',
+        '#F39C12', '#BDC3C7', '#95A5A6', '#FF6F61', '#6B5B95', '#88B04B', '#F7CAC9', '#92A8D1',
+        '#955251', '#B565A7', '#009B77', '#DD4124', '#D65076', '#45B8AC', '#EFC050', '#5B5EA6',
+        '#9B2335', '#DFCFBE', '#55B4B0', '#E15D44', '#7FCDCD', '#BC243C', '#6C4F3D', '#C3447A',
+        '#FFA500', '#40E0D0', '#FF1493', '#20B2AA', '#BA55D3', '#CD5C5C', '#5F9EA0', '#9ACD32',
+        '#00CED1', '#9932CC', '#DAA520', '#ADFF2F', '#FF4500', '#7CFC00', '#4682B4', '#EE82EE',
+        '#B22222', '#1E90FF', '#008B8B', '#B0C4DE', '#8A2BE2', '#D2691E', '#DC143C', '#00BFFF',
+        '#228B22', '#4B0082', '#F08080', '#66CDAA', '#FFA07A', '#9370DB', '#FA8072', '#00FF7F',
+        '#8B0000', '#FFD700', '#00FA9A', '#8FBC8F', '#9932CC', '#FF00FF', '#C71585', '#4169E1',
+        '#6A5ACD', '#FF8C00', '#7B68EE', '#DB7093', '#CD853F', '#8B4513', '#DEB887', '#A0522D',
+        '#F5DEB3', '#BC8F8F', '#D2B48C', '#DA70D6', '#FFFACD', '#F0E68C', '#D8BFD8', '#FFE4E1',
+        '#F5F5DC', '#FFF0F5', '#FFEBCD', '#FFEFD5', '#FFDEAD', '#F0FFF0', '#E0FFFF', '#F8F8FF',
+        '#F5FFFA', '#FDF5E6', '#F0FFFF', '#FAFAD2', '#FFFAF0', '#FFF5EE', '#F5F5F5', '#FFF8DC',
+        '#FFFFE0', '#FFFAFA', '#FFFFF0', '#FFB6C1', '#FF69B4', '#FF6347', '#DC143C', '#FF0000',
+        '#FF7F50', '#FF8C69', '#FF7256', '#FF4500', '#FF6347', '#FF0000', '#8B0000', '#B22222',
+        '#FA8072', '#E9967A', '#FFA07A', '#FF8C00', '#FFA500', '#FFD700', '#FFFF00', '#9ACD32',
+        '#ADFF2F', '#7FFF00', '#7CFC00', '#00FF00', '#32CD32', '#00FA9A', '#00FF7F', '#3CB371',
+        '#2E8B57', '#006400', '#228B22', '#008000', '#6B8E23', '#808000', '#556B2F', '#66CDAA',
+        '#20B2AA', '#008B8B', '#008080', '#00FFFF', '#00CED1', '#40E0D0', '#48D1CC', '#00BFFF',
+        '#1E90FF', '#4169E1', '#0000FF', '#0000CD', '#00008B', '#000080', '#191970', '#8A2BE2',
+        '#9400D3', '#9932CC', '#BA55D3', '#9370DB', '#6A5ACD', '#7B68EE', '#8B008B', '#800080',
+        '#4B0082', '#6B5B95', '#3C3C3C', '#2F4F4F', '#696969', '#708090', '#778899', '#B0C4DE',
+        '#4682B4', '#5F9EA0', '#6495ED', '#87CEEB', '#87CEFA', '#ADD8E6', '#B0E0E6', '#AFEEEE',
+        '#E0FFFF', '#F0FFFF', '#F0F8FF', '#F8F8FF', '#F5F5F5', '#FFF5EE', '#FAEBD7', '#FFE4C4'
     ];
 
     const options = [
