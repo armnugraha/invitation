@@ -152,7 +152,7 @@ export default function LandingPage({onOpenInvitation}) {
                     <div className="absolute inset-0 bg-gradient-to-r from-rose-600 to-rose-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                   </motion.button>
 
-                  <motion.button
+                  {/* <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.2 }}
                     onClick={() => setisSouvenirOpen(true)}
@@ -168,7 +168,7 @@ export default function LandingPage({onOpenInvitation}) {
                       </span>
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-rose-600 to-rose-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                  </motion.button>
+                  </motion.button> */}
                 </div>
               </div>
             </div>
