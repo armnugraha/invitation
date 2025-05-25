@@ -1,13 +1,4 @@
-import config from '@/config/config';
 import { motion } from 'framer-motion'
-import {
-    Copy,
-    Gift,
-    CreditCard,
-    CheckCircle,
-    Wallet,
-    Building2,
-} from 'lucide-react'
 import { useState } from 'react';
 export default function Doa() {
     const [copiedAccount, setCopiedAccount] = useState(null);
@@ -41,10 +32,7 @@ export default function Doa() {
                     </motion.h2>
 
                     {/* Message Container */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ delay: 0.5 }}
+                    <div
                         className="space-y-4 max-w-md mx-auto"
                     >
                         {/* Arabic */}
@@ -67,19 +55,16 @@ export default function Doa() {
                                 والسَّلامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ
                             </p>
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Optional: Additional Decorative Element */}
-                    <motion.div
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        transition={{ delay: 0.6 }}
+                    <div
                         className="flex items-center justify-center gap-3"
                     >
                         <div className="h-px w-8 bg-rose-200/50" />
                         <div className="w-1.5 h-1.5 rounded-full bg-rose-300" />
                         <div className="h-px w-8 bg-rose-200/50" />
-                    </motion.div>
+                    </div>
                 </motion.div>
             </div>
         </section>

@@ -1,9 +1,8 @@
-import EventCards from '@/components/EventsCard'
 import ScrollCard from '@/components/ScrollCard'
 
 import config from '@/config/config'
 import { motion } from 'framer-motion'
-import { Calendar, Clock, Heart, NavigationIcon, ExternalLink, BookHeart } from 'lucide-react'
+import { Calendar, Clock, Heart, BookHeart } from 'lucide-react'
 import { formatEventDate } from '@/lib/formatEventDate';
 import { safeBase64 } from '@/lib/base64';
 import { useEffect, useState } from 'react';
@@ -67,14 +66,14 @@ export default function Events() {
                 <div
                     className="text-center space-y-4 mb-16"
                 >
-                    <h2
+                    <motion.h2
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.1, delay: 0.4 }}
                         className="text-2xl font-semibold text-[#A66C6B]"
                     >
                         Waktu & Tempat
-                    </h2>
+                    </motion.h2>
 
                     <p className="text-gray-600 text-sm italic">
                         Dengan izin Allah ﷻ, berikut adalah waktu dan tempat pelaksanaan akad & resepsi pernikahan kami.

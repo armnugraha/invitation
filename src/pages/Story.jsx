@@ -1,8 +1,5 @@
-import config from "@/config/config";
 import StoryCard from "@/components/StoryCard";
-import { Clock, Navigation as NavigationIcon, MapPin, CalendarCheck, Phone, ExternalLink } from 'lucide-react'
 import { motion } from 'framer-motion';
-import { formatEventDate } from "@/lib/formatEventDate";
 
 export default function Story() {
     return (<>
@@ -17,29 +14,19 @@ export default function Story() {
 
             <div className="container mx-auto px-4 py-4 relative z-10">
                 {/* Section Header */}
-                <motion.div
+                <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="text-center space-y-2 mb-8"
+                    transition={{ delay: 0.3 }}
+                    className="text-2xl font-semibold text-[#A66C6B] text-center space-y-2 mb-8"
                 >
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="text-2xl font-semibold text-[#A66C6B]"
-                    >
-                        Our Story
-                    </motion.h2>
-                </motion.div>
+                    Our Story
+                </motion.h2>
 
                 {/* Story Content */}
                 <div className="max-w-6xl mx-auto grid md:grid-row-2 gap-4 items-center">
                     {/* Venue Details */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
+                    <div
                         className="space-y-4"
                     >
                         <p className="text-right text-rose-800 font-[amiri] text-sm max-w-md mx-auto">
@@ -62,7 +49,7 @@ export default function Story() {
                             Begitulah takdir Allah bekerja, begitu indah ternyata akhirnya, saat kita tetap selalu berusaha untuk bersabar dalam menjalani ketetapan-Nya sesuai dengan aturan-Nya ❤️.
                         </p>
                         <StoryCard />
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </section>

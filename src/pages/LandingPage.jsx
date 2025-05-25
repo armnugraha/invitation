@@ -63,12 +63,12 @@ export default function LandingPage({onOpenInvitation}) {
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   <span>Kembali</span>
-                  <motion.span
+                  <span
                     animate={{ x: [0, 4, 0] }}
                     transition={{ repeat: Infinity, duration: 1.5 }}
                   >
                     →
-                  </motion.span>
+                  </span>
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-rose-600 to-rose-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
               </motion.button>
@@ -142,12 +142,12 @@ export default function LandingPage({onOpenInvitation}) {
                   >
                     <span className="relative z-10 flex items-center justify-center gap-2">
                       <span>Buka Undangan</span>
-                      <motion.span
+                      <span
                         animate={{ x: [0, 4, 0] }}
                         transition={{ repeat: Infinity, duration: 1.5 }}
                       >
                         →
-                      </motion.span>
+                      </span>
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-rose-600 to-rose-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                   </motion.button>
@@ -160,12 +160,12 @@ export default function LandingPage({onOpenInvitation}) {
                   >
                     <span className="relative z-10 flex items-center justify-center gap-2">
                       <span>Souvenir</span>
-                      <motion.span
+                      <span
                         animate={{ x: [0, 4, 0] }}
                         transition={{ repeat: Infinity, duration: 1.5 }}
                       >
                         →
-                      </motion.span>
+                      </span>
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-rose-600 to-rose-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                   </motion.button>

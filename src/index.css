@@ -83,6 +83,10 @@
   background-size: 105px;
 }
 
+.draw_line.bottom {
+  background-position: bottom;
+}
+
 .front-card {
   width: 100%;
   height: 100vh;

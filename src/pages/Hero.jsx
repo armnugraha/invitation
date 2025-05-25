@@ -1,8 +1,7 @@
-import { Calendar, Clock, Heart, BookHeart } from 'lucide-react'
+import { Heart } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react';
 import config from '@/config/config';
-import { formatEventDate } from '@/lib/formatEventDate';
 import { safeBase64 } from '@/lib/base64';
 
 export default function Hero() {
