@@ -32,7 +32,7 @@ export default function Wishes() {
     const profileBackgroundColors = [
         "#F9AFAF", "#A8D8EA", "#FFE0AC", "#B5EAD7", "#C7CEEA",
         "#FFDAC1", "#FFB7B2", "#E2F0CB", "#C9C9FF", "#FFABAB",
-        "#FFD6A5", "#FDFFB6", "#CAFFBF", "#9BF6FF", "#A0C4FF",
+        "#FFD6A5", "#CAFFBF", "#9BF6FF", "#A0C4FF",
         "#BDB2FF", "#FFC6FF", "#FFCBF2", "#A3C4F3", "#D5AAFF",
         "#FFF1C1", "#B6E2D3", "#FFDEE9", "#DEFDE0", "#D0F4DE",
         '#FF5733', '#33B5FF', '#8E44AD', '#2ECC71', '#E67E22', '#1ABC9C', '#F1C40F', '#D35400',
@@ -295,7 +295,7 @@ export default function Wishes() {
                                         </div>
 
                                         {/* Message */}
-                                        <p className="text-gray-600 text-sm leading-relaxed mb-2 line-clamp-6">
+                                        <p className="text-gray-600 text-sm leading-relaxed mb-2 line-clamp-8">
                                             {wish.message}
                                         </p>
 
