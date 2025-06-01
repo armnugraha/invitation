@@ -4,10 +4,16 @@ import config from '@/config/config'
 import { motion } from 'framer-motion'
 import { Calendar, Clock, Heart, BookHeart } from 'lucide-react'
 import { formatEventDate } from '@/lib/formatEventDate';
-import { safeBase64 } from '@/lib/base64';
+import supabase from "../supabaseClient";
 import { useEffect, useState } from 'react';
 
 export default function Events() {
+    const [attendance, setAttendance] = useState({})
+
+    useEffect(() => {
+        getAttendance();
+    }, []);
+
     const CountdownTimer = ({ targetDate }) => {
         const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
         function calculateTimeLeft() {
@@ -46,6 +52,31 @@ export default function Events() {
                 ))}
             </div>
         );
+    };
+
+    const getAttendance = async () => {
+        try {
+            // Get guest parameter from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const guestParam = urlParams.get('guest');
+
+            const { data, error } = await supabase
+            .from("attendances")
+            .select()
+            .ilike("name", `%${guestParam}%`)
+            .limit(1)
+            .single();
+            
+            if (error) {
+                throw new Error(JSON.stringify(error));
+            }
+
+            setAttendance(data)
+        } catch (error) {
+            const err = JSON.parse(error.message)
+            if (err.message == 'TypeError: Failed to fetch') {
+            }
+        }
     };
 
     return (<>
@@ -121,7 +152,12 @@ export default function Events() {
                             </div>
                             <div className="space-y-2 text-sm">
                                 <p className="text-gray-500 flex items-center gap-2"><Calendar className="w-5 h-5 text-rose-500" /> {formatEventDate(config.eventDetails[1].date)}</p>
-                                <p className="text-gray-500 flex items-center gap-2"><Clock className="w-5 h-5 text-rose-500" /> {config.eventDetails[1].startTime} - {config.eventDetails[1].endTime} WIB</p>
+                                { attendance.time_invite ? (
+                                    <p className="text-gray-500 flex items-center gap-2"><Clock className="w-5 h-5 text-rose-500" /> { attendance.time_invite }</p>
+                                ) : (
+                                    <p className="text-gray-500 flex items-center gap-2"><Clock className="w-5 h-5 text-rose-500" /> {config.eventDetails[1].startTime} - {config.eventDetails[1].endTime} WIB</p>
+                                )
+                                }
                             </div>
                         </div>
                     </div>
