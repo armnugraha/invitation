@@ -27,6 +27,7 @@ export default function Wishes() {
     const [newWish, setNewWish] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [attendance, setAttendance] = useState('');
+    const [invite, setInvite] = useState('');
     const [isOpen, setIsOpen] = useState(false);
     const [guestName, setGuestName] = useState('');
     const profileBackgroundColors = [
@@ -149,7 +150,7 @@ export default function Wishes() {
     };
 
     function InputName() {
-        if (!guestName) {
+        if (!guestName || invite?.is_group) {
             return (
                 <div className="space-y-2">
                     <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
@@ -170,7 +171,7 @@ export default function Wishes() {
     }
 
     function ShowGuest() {
-        return guestName ? guestName : 'Kamu';
+        return guestName && !invite?.is_group ? guestName : 'Kamu';
     }
 
     function ShowAttendanceReaction() {
@@ -180,8 +181,34 @@ export default function Wishes() {
                     <Meh className="w-5 h-5 text-amber-500" />));
     }
 
+    const getAttendance = async () => {
+        try {
+            // Get guest parameter from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const guestParam = urlParams.get('guest');
+
+            const { data, error } = await supabase
+            .from("attendances")
+            .select()
+            .ilike("name", `%${guestParam}%`)
+            .limit(1)
+            .single();
+            
+            if (error) {
+                throw new Error(JSON.stringify(error));
+            }
+
+            setInvite(data)
+        } catch (error) {
+            const err = JSON.parse(error.message)
+            if (err.message == 'TypeError: Failed to fetch') {
+            }
+        }
+    };
+
     useEffect(() => {
         getWhises();
+        getAttendance();
 
         // Get guest parameter from URL
         const urlParams = new URLSearchParams(window.location.search);
