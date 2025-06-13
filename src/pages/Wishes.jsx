@@ -66,7 +66,7 @@ export default function Wishes() {
     const options = [
         { value: 'attending', label: 'Ya, saya akan hadir' },
         { value: 'not-attending', label: 'Tidak, saya tidak bisa hadir' },
-        { value: 'maybe', label: 'Mungkin, nanti saya konfirmasi' }
+        { value: 'maybe', label: 'InsyaAllah, nanti saya konfirmasi' }
     ];
     // Example wishes - replace with your actual data
     const [wishes, setWishes] = useState([
@@ -98,11 +98,13 @@ export default function Wishes() {
         if (!newWish.trim()) return;
 
         setIsSubmitting(true);
+        const name = !guestName || invite?.is_group ? newName : guestName
+
         // Simulating API call
         await new Promise(resolve => setTimeout(resolve, 1000));
         const { data, error } = await supabase
             .from('messages')
-            .insert([{ name: guestName ?? newName, attending: attendance, message: newWish }]); // Insert new user
+            .insert([{ name: name, attending: attendance, message: newWish }]); // Insert new user
 
         if (error) {
             console.error('Error creating user:', error);
@@ -278,7 +280,7 @@ export default function Wishes() {
                     <AnimatePresence>
                         <Marquee speed={90}
                             gradient={false}
-                            className="[--duration:90s] py-2">
+                            className="[--duration:140s] py-2">
                             {wishes.map((wish, index) => (
                                 <motion.div
                                     key={wish.id}
@@ -300,7 +302,7 @@ export default function Wishes() {
                                             <div className="flex-shrink-0">
                                                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-medium`}
                                                     style={{ backgroundColor: profileBackgroundColors[index] }}>
-                                                    {wish.name[0].toUpperCase()}
+                                                    {wish.name[0]?.toUpperCase()}
                                                 </div>
                                             </div>
 
@@ -348,7 +350,29 @@ export default function Wishes() {
                         <div className="backdrop-blur-sm bg-white/80 p-6 rounded-2xl border border-rose-100/50 shadow-lg">
                             <div className='space-y-2'>
                                 {/* Name Input */}
-                                <InputName />
+                                {
+                                    (!guestName || invite?.is_group) ?
+                                    (
+                                        <div className="space-y-2">
+                                            <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
+                                                <User className="w-4 h-4" />
+                                                <span>Nama Kamu</span>
+                                            </div>
+                                            <input
+                                                type="text"
+                                                placeholder="Masukan nama kamu..."
+                                                className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-rose-100 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 transition-all duration-200 text-gray-700 placeholder-gray-400"
+                                                required
+                                                value={newName}
+                                                onChange={(e) => setNewName(e.target.value)}
+                                            />
+                                        </div>
+                                    )
+                                    :
+                                    (
+                                        null
+                                    )
+                                }
 
                                 <div
                                     className="space-y-2 relative"
