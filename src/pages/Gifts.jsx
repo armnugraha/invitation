@@ -142,31 +142,29 @@ export default function ScratchCard() {
                       {config.couple.brideName}
                     </h1>
                     <div className="flex justify-center">
-                      <div className="flex justify-center">
-                          <div
-                            style={{
-                              position: "relative",
-                              width: 150,
-                              height: 150,
-                              display: "inline-block",
-                            }}
-                          >
-                            <QRCodeCanvas value={"https://app.gopay.co.id/NF8p/pfa07i9a"} size={150} level="H" includeMargin={true} />
+                      <div
+                        style={{
+                          position: "relative",
+                          width: 300,
+                          height: 300,
+                          display: "inline-block",
+                        }}
+                      >
+                        <QRCodeCanvas value={"https://app.gopay.co.id/NF8p/pfa07i9a"} size={300} level="H" includeMargin={true} />
 
-                            <canvas
-                              ref={scratchCanvasRef}
-                              width={150}
-                              height={150}
-                              style={{
-                              position: "absolute",
-                              top: 0,
-                              left: 0,
-                              cursor: "crosshair",
-                              display: showScratchLayer ? "block" : "none",
-                              }}
-                            />
-                          </div>
-                        </div>
+                        <canvas
+                          ref={scratchCanvasRef}
+                          width={300}
+                          height={300}
+                          style={{
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          cursor: "crosshair",
+                          display: showScratchLayer ? "block" : "none",
+                          }}
+                        />
+                      </div>
                     </div>
                     <div className="h-px w-32 mx-auto bg-rose-200" />
                   </div>
