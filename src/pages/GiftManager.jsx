@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import supabase from "../supabaseClient";
+import { QRCodeCanvas } from "qrcode.react";
 
 export default function GiftManager() {
   const [gifts, setGifts] = useState([]);
@@ -133,7 +134,10 @@ export default function GiftManager() {
             {gifts.map((gift) => (
               <tr key={gift.id} className="text-center">
                 <td className="border px-4 py-2">{gift.id}</td>
-                <td className="border px-4 py-2">{gift.code}</td>
+                <td className="border px-4 py-2">
+                  {gift.code}
+                  <QRCodeCanvas value={'https://febri-arman.netlify.app/gifts?uid='+gift.code} size={500} level="H" />
+                </td>
                 <td className="border px-4 py-2 text-blue-500 underline">
                   <a href={gift.url} target="_blank" rel="noopener noreferrer">
                     Link
