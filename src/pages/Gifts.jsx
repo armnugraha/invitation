@@ -106,6 +106,14 @@ export default function Gifts() {
     return now < openTime;
   };
 
+  const onOpenGift = () => {
+    if (gift.url) {
+      window.open(gift.url, "_blank");
+    } else {
+      alert("Link hadiah tidak tersedia.");
+    }
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -144,11 +152,11 @@ export default function Gifts() {
 
                   <div className="bg-white rounded-2xl shadow-lg border border-gray-100">
                     <h3 className="text-xl pl-4 pt-4 text-left font-serif text-gray-800">Cara menukarkan hadiahnya:</h3>
-                    <div className="grid grid-cols-2 items-center">
+                    <div className="grid grid-cols-2">
                         <div className="space-y-4 p-4">
                           <div className="items-start space-x-4 text-xs">
                             <ul className="text-gray-600 space-y-2">
-                              <li className="">1. Download Aplikasi GoPay melalui Apps Store maupun Play Store</li>
+                              <li className="">1. Download Aplikasi GoPay melalui Apps Store maupun Play Store atau update Aplikasi ke versi terbaru</li>
                               <li className="">2. Buka Aplikasi GoPay</li>
                               <li className="">3. Pilih QRIS</li>
                               <li className="">4. Scan Qr-Code yang ada di samping</li>
@@ -156,11 +164,11 @@ export default function Gifts() {
                             </ul>
                           </div>
                         </div>
-                        <div className="text-center">
+                        <div className="text-center mt-4">
                           <p className="text-xs text-gray-800 font-medium">
                             Gosok area abu ini yaa 😎
                           </p>
-                          <div className="flex justify-center">
+                          <div className="flex justify-center mr-4">
                             <div
                               style={{
                                 position: "relative",
@@ -170,11 +178,21 @@ export default function Gifts() {
                               }}
                             >
                               <QRCodeCanvas value={gift.url} size={150} level="H" includeMargin={true} />
-
+                              <div className="flex text-left">
+                                <p className="text-xs text-gray-800 !text-[10px]">
+                                  Jika gagal klik tombol berikut:
+                                </p>
+                                <button
+                                  onClick={onOpenGift}
+                                  className="text-xs group relative bg-rose-500 text-[#CFB1A7] px-2 py-1 rounded-xl shadow-lg hover:bg-rose-600 transition-all duration-200 !text-[10px]"
+                                >
+                                  <span>Hadiah</span>
+                                </button>
+                              </div>
                               <canvas
                                 ref={scratchCanvasRef}
                                 width={150}
-                                height={150}
+                                height={200}
                                 style={{
                                   position: "absolute",
                                   top: 0,
