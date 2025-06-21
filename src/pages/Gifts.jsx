@@ -118,11 +118,11 @@ export default function ScratchCard() {
           {
             gift.code ? (
 
-              <div className="backdrop-blur-sm bg-white/50 p-4 md:p-10 rounded-2xl border border-rose-100/50 shadow-xl rose-bg">
+              <div className="backdrop-blur-sm bg-white/50 p-8 md:p-10 rounded-2xl border border-rose-100/50 shadow-xl rose-bg">
 
                 <div className="text-center space-y-6 px-6 py-3">
                   <p className="text-gray-700 font-medium">
-                    Alhamdulillah kakak nya berhak mendapatkan sedikit hadiah dari kami 🙌
+                    The Wedding of
                   </p>
                 </div>
 
@@ -132,25 +132,17 @@ export default function ScratchCard() {
                   <div className="h-[2px] w-16 bg-[#F7E8E1]" />
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-lg border border-gray-100">
-                  <h3 className="text-xl pl-4 pt-4 text-left font-serif text-gray-800">Cara menukarkan hadiahnya:</h3>
-                  <div className="grid grid-cols-2 items-center">
-                      <div className="space-y-4 p-4">
-                        <div className="items-start space-x-4 text-xs">
-                          <ul className="text-gray-600 space-y-2">
-                            <li className="">1. Download Aplikasi GoPay melalui Apps Store maupun Play Store</li>
-                            <li className="">2. Buka Aplikasi GoPay</li>
-                            <li className="">3. Pilih QRIS</li>
-                            <li className="">4. Scan Qr-Code yang ada di samping</li>
-                            <li className="">5. Selamat saldo gopay telah masuk ke saldo kakak nya 🎉</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-xs text-gray-800 font-medium">
-                          Gosok area abu ini yaa 😎
-                        </p>
-                        <div className="flex justify-center">
+                <div
+                  className="text-center space-y-6"
+                >
+                  <div className="space-y-3 mb-4">
+                    <h1 className="text-4xl md:text-5xl font-serif text-[#A66C6B]">
+                      {config.couple.groomName}
+                        <span className="text-[#A66C6B] mx-3">&</span>
+                      {config.couple.brideName}
+                    </h1>
+                    <div className="flex justify-center">
+                      <div className="flex justify-center">
                           <div
                             style={{
                               position: "relative",
@@ -175,27 +167,53 @@ export default function ScratchCard() {
                             />
                           </div>
                         </div>
-                      </div>
+                    </div>
+                    <div className="h-px w-32 mx-auto bg-rose-200" />
                   </div>
                 </div>
 
                 <div
                   className="space-y-4"
                 >
-                  <p className="text-xs text-gray-500 font-medium italic mt-4">
-                    Oiya Qr-Code nya hanya berlaku sampai tanggal 28 Juni pukul 23.59 WIB saja yaa, jadi jangan lupa untuk segera melakukan redeem Qr-Code nya
-                  </p>
-
+                  <div className="text-center space-y-1">
+                    <p className="text-gray-500 font-serif italic">
+                      Yth.
+                    </p>
+                    <p className="text-gray-600 font-medium">
+                      Bapak/Ibu/Saudara/i
+                    </p>
+                    <p className="text-[#CFB1A7] font-semibold text-lg">
+                      {gift.price}
+                    </p>
+                  </div>
                   <p className="text-sm text-gray-500 font-medium">
-                    Terima kasih sudah mau hadir di acara kami, semoga hadiah ini bisa bermanfaat untuk kakak nya yaa. Jangan lupa untuk selalu bahagia dan sehat selalu yaa! 🥰
+                    Dengan penuh rasa syukur dan mengharap ridha Allah ﷻ, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri walimatul ‘urs (resepsi pernikahan) kami.
                   </p>
+                  <div className="flex gap-2">
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.2 }}
+                      className="group relative w-full bg-rose-500 text-[#CFB1A7] px-3 py-3 rounded-xl font-medium shadow-lg hover:bg-rose-600 transition-all duration-200"
+                    >
+                      <span className="relative z-10 flex items-center justify-center gap-2">
+                        <span>Buka Undangan</span>
+                        <span
+                        >
+                          →
+                        </span>
+                      </span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-rose-600 to-rose-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                    </motion.button>
+                  </div>
                 </div>
               </div>
+
             )
             : (
               <p>test</p>
             )
           }
+          {gift.code}
         </motion.div>
       </div>
     </motion.div>
