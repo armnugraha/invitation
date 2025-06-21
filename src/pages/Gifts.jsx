@@ -11,7 +11,7 @@ export default function ScratchCard() {
   const [gift, setGift] = useState({})
 
   useEffect(() => {
-    getGift()
+    drawCoupon()
   }, []);
 
   const getGift = async () => {
@@ -31,8 +31,6 @@ export default function ScratchCard() {
         throw new Error(JSON.stringify(error));
       }
       setGift(data)
-
-      drawCoupon()
     } catch (error) {
       const err = JSON.parse(error.message)
       if (err.message == 'TypeError: Failed to fetch') {
@@ -116,7 +114,7 @@ export default function ScratchCard() {
           className="max-w-md w-full"
         >
           {
-            gift.code ? (
+            !gift.code ? (
 
               <div className="backdrop-blur-sm bg-white/50 p-8 md:p-10 rounded-2xl border border-rose-100/50 shadow-xl rose-bg">
 
