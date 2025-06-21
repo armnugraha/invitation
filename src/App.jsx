@@ -18,6 +18,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Gifts from './pages/Gifts'; // halaman baru
+import ExampleGifts from './pages/ExampleGifts'; // halaman baru
+import GiftManager from './pages/GiftManager'; // halaman baru
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/gifts" element={<Gifts />} /> {/* halaman baru */}
+        <Route path="/example-gifts" element={<ExampleGifts />} /> {/* halaman baru */}
+        <Route path="/manage-gifts" element={<GiftManager />} /> {/* halaman baru */}
       </Routes>
     </Router>
   );
