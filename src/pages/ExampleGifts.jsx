@@ -6,6 +6,7 @@ import supabase from "../supabaseClient";
 export default function Gifts() {
   const scratchCanvasRef = useRef(null);
   const isDrawingRef = useRef(false);
+  const [isShowButton, setButton] = useState(false);
   const [showScratchLayer, setShowScratchLayer] = useState(false);
   const [gift, setGift] = useState({})
 
@@ -66,6 +67,10 @@ export default function Gifts() {
     const startDraw = (e) => {
       isDrawingRef.current = true;
       draw(e);
+
+      setTimeout(() => {
+        setButton(true);
+      }, 10000);
     };
 
     const endDraw = () => {
@@ -152,7 +157,7 @@ export default function Gifts() {
 
                   <div className="bg-white rounded-2xl shadow-lg border border-gray-100">
                     <h3 className="text-xl pl-4 pt-4 text-left font-serif text-gray-800">Cara menukarkan hadiahnya:</h3>
-                    <div className="grid grid-cols-2">
+                    <div className="grid grid-cols-2 items-center">
                         <div className="space-y-4 p-4">
                           <div className="items-start space-x-4 text-xs">
                             <ul className="text-gray-600 space-y-2">
@@ -160,11 +165,12 @@ export default function Gifts() {
                               <li className="">2. Buka Aplikasi GoPay</li>
                               <li className="">3. Pilih QRIS</li>
                               <li className="">4. Scan Qr-Code yang ada di samping</li>
-                              <li className="">5. Selamat saldo gopay telah masuk ke saldo kakak nya 🎉</li>
+                              <li className="">5. Ambil hadiah</li>
+                              <li className="">6. Selamat saldo GoPay telah bertambah 🎉</li>
                             </ul>
                           </div>
                         </div>
-                        <div className="text-center mt-4">
+                        <div className="text-center">
                           <p className="text-xs text-gray-800 font-medium">
                             Gosok area abu ini yaa 😎
                           </p>
@@ -178,21 +184,10 @@ export default function Gifts() {
                               }}
                             >
                               <QRCodeCanvas value={gift.url} size={150} level="H" includeMargin={true} />
-                              <div className="flex text-left">
-                                <p className="text-xs text-gray-800 !text-[10px]">
-                                  Jika gagal klik tombol berikut:
-                                </p>
-                                <button
-                                  onClick={onOpenGift}
-                                  className="text-xs group relative bg-rose-500 text-[#CFB1A7] px-2 py-1 rounded-xl shadow-lg hover:bg-rose-600 transition-all duration-200 !text-[10px]"
-                                >
-                                  <span>Hadiah</span>
-                                </button>
-                              </div>
                               <canvas
                                 ref={scratchCanvasRef}
                                 width={150}
-                                height={200}
+                                height={140}
                                 style={{
                                   position: "absolute",
                                   top: 0,
@@ -202,6 +197,27 @@ export default function Gifts() {
                                   borderRadius: "12px",
                                 }}
                               />
+                              {
+                                isShowButton ? (
+                                  <motion.div initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.2 }}
+                                    exit={{ opacity: 0 }}
+                                    className="flex items-center justify-between text-left">
+                                    <p className="text-xs text-gray-800 !text-[7px]">
+                                      Jika gagal scan klik tombol ini oke:
+                                    </p>
+                                    <button
+                                      onClick={onOpenGift}
+                                      className="text-xs group relative bg-rose-500 text-[#CFB1A7] px-2 py-1 rounded-md shadow-lg hover:bg-rose-600 transition-all duration-200 !text-[7px]"
+                                    >
+                                      <span>Hadiah</span>
+                                    </button>
+                                  </motion.div>
+                                ) : (
+                                  <span></span>
+                                )
+                              }
                             </div>
                           </div>
                         </div>
@@ -218,7 +234,7 @@ export default function Gifts() {
             }
 
             <p className="text-sm text-gray-500 font-medium">
-              Terima kasih sudah mau hadir di acara kami, semoga hadiah ini bisa bermanfaat untuk kakak nya yaa. Jangan lupa untuk selalu bahagia dan sehat selalu yaa! 🥰
+              Terima kasih sudah menyempatkan hadir di acara kami, semoga hadiah ini bisa bermanfaat untuk kakak nya yaa. Jangan lupa untuk selalu bahagia dan sehat selalu yaa! 🥰
             </p>
           </div>
         </motion.div>
