@@ -100,12 +100,6 @@ export default function ExampleGifts() {
     };
   }
 
-  const isBeforeOpenTime = () => {
-    const now = new Date();
-    const openTime = new Date("2025-06-28T02:00:00Z"); // UTC+0 = 09.00 WIB
-    return now < openTime;
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -128,7 +122,7 @@ export default function ExampleGifts() {
         >
           <div className="backdrop-blur-sm bg-white/50 p-4 md:p-10 rounded-2xl border border-rose-100/50 shadow-xl rose-bg">
             {
-              gift.code && !isBeforeOpenTime ? (
+              gift.code ? (
                 <div>
                   <div className="text-center space-y-6 px-6 py-3">
                     <p className="text-gray-700 font-medium">
