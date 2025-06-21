@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { QRCodeCanvas } from "qrcode.react";
-import config from '@/config/config';
 import { motion } from 'framer-motion';
 import supabase from "../supabaseClient";
 
-export default function ScratchCard() {
+export default function Gifts() {
   const scratchCanvasRef = useRef(null);
   const isDrawingRef = useRef(false);
   const [showScratchLayer, setShowScratchLayer] = useState(false);
@@ -101,6 +100,12 @@ export default function ScratchCard() {
     };
   }
 
+  const isBeforeOpenTime = () => {
+    const now = new Date();
+    const openTime = new Date("2025-06-28T02:30:00Z"); // UTC+0 = 09.30 WIB
+    return now < openTime;
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -121,87 +126,83 @@ export default function ScratchCard() {
           transition={{ duration: 0.2 }}
           className="max-w-md w-full"
         >
-          {
-            gift.code ? (
+          <div className="backdrop-blur-sm bg-white/50 p-4 md:p-10 rounded-2xl border border-rose-100/50 shadow-xl rose-bg">
+            {
+              gift.code && !isBeforeOpenTime() ? (
+                <div>
+                  <div className="text-center space-y-6 px-6 py-3">
+                    <p className="text-gray-700 font-medium">
+                      Alhamdulillah kakak nya berhak mendapatkan sedikit hadiah dari kami 🙌
+                    </p>
+                  </div>
 
-              <div className="backdrop-blur-sm bg-white/50 p-4 md:p-10 rounded-2xl border border-rose-100/50 shadow-xl rose-bg">
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <div className="h-[2px] w-16 bg-[#F7E8E1]" />
+                    <div className="w-3 h-3 rounded-full bg-[#F7E8E1]" />
+                    <div className="h-[2px] w-16 bg-[#F7E8E1]" />
+                  </div>
 
-                <div className="text-center space-y-6 px-6 py-3">
-                  <p className="text-gray-700 font-medium">
-                    Alhamdulillah kakak nya berhak mendapatkan sedikit hadiah dari kami 🙌
-                  </p>
-                </div>
-
-                <div className="flex items-center justify-center gap-3 mb-4">
-                  <div className="h-[2px] w-16 bg-[#F7E8E1]" />
-                  <div className="w-3 h-3 rounded-full bg-[#F7E8E1]" />
-                  <div className="h-[2px] w-16 bg-[#F7E8E1]" />
-                </div>
-
-                <div className="bg-white rounded-2xl shadow-lg border border-gray-100">
-                  <h3 className="text-xl pl-4 pt-4 text-left font-serif text-gray-800">Cara menukarkan hadiahnya:</h3>
-                  <div className="grid grid-cols-2 items-center">
-                      <div className="space-y-4 p-4">
-                        <div className="items-start space-x-4 text-xs">
-                          <ul className="text-gray-600 space-y-2">
-                            <li className="">1. Download Aplikasi GoPay melalui Apps Store maupun Play Store</li>
-                            <li className="">2. Buka Aplikasi GoPay</li>
-                            <li className="">3. Pilih QRIS</li>
-                            <li className="">4. Scan Qr-Code yang ada di samping</li>
-                            <li className="">5. Selamat saldo gopay telah masuk ke saldo kakak nya 🎉</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-xs text-gray-800 font-medium">
-                          Gosok area abu ini yaa 😎
-                        </p>
-                        <div className="flex justify-center">
-                          <div
-                            style={{
-                              position: "relative",
-                              width: 150,
-                              height: 150,
-                              display: "inline-block",
-                            }}
-                          >
-                            <QRCodeCanvas value={gift.url} size={150} level="H" includeMargin={true} />
-
-                            <canvas
-                              ref={scratchCanvasRef}
-                              width={150}
-                              height={150}
-                              style={{
-                              position: "absolute",
-                              top: 0,
-                              left: 0,
-                              cursor: "crosshair",
-                              display: showScratchLayer ? "block" : "none",
-                              }}
-                            />
+                  <div className="bg-white rounded-2xl shadow-lg border border-gray-100">
+                    <h3 className="text-xl pl-4 pt-4 text-left font-serif text-gray-800">Cara menukarkan hadiahnya:</h3>
+                    <div className="grid grid-cols-2 items-center">
+                        <div className="space-y-4 p-4">
+                          <div className="items-start space-x-4 text-xs">
+                            <ul className="text-gray-600 space-y-2">
+                              <li className="">1. Download Aplikasi GoPay melalui Apps Store maupun Play Store</li>
+                              <li className="">2. Buka Aplikasi GoPay</li>
+                              <li className="">3. Pilih QRIS</li>
+                              <li className="">4. Scan Qr-Code yang ada di samping</li>
+                              <li className="">5. Selamat saldo gopay telah masuk ke saldo kakak nya 🎉</li>
+                            </ul>
                           </div>
                         </div>
-                      </div>
+                        <div className="text-center">
+                          <p className="text-xs text-gray-800 font-medium">
+                            Gosok area abu ini yaa 😎
+                          </p>
+                          <div className="flex justify-center">
+                            <div
+                              style={{
+                                position: "relative",
+                                width: 150,
+                                height: 150,
+                                display: "inline-block",
+                              }}
+                            >
+                              <QRCodeCanvas value={gift.url} size={150} level="H" includeMargin={true} />
+
+                              <canvas
+                                ref={scratchCanvasRef}
+                                width={150}
+                                height={150}
+                                style={{
+                                  position: "absolute",
+                                  top: 0,
+                                  left: 0,
+                                  cursor: "crosshair",
+                                  display: showScratchLayer ? "block" : "none",
+                                  borderRadius: "12px",
+                                }}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                    </div>
                   </div>
-                </div>
 
-                <div
-                  className="space-y-4"
-                >
-                  <p className="text-xs text-gray-500 font-medium italic mt-4">
-                    Oiya Qr-Code nya hanya berlaku sampai tanggal 28 Juni pukul 23.59 WIB saja yaa, jadi jangan lupa untuk segera melakukan redeem Qr-Code nya
-                  </p>
-
-                  <p className="text-sm text-gray-500 font-medium">
-                    Terima kasih sudah mau hadir di acara kami, semoga hadiah ini bisa bermanfaat untuk kakak nya yaa. Jangan lupa untuk selalu bahagia dan sehat selalu yaa! 🥰
+                  <p className="text-xs text-gray-500 font-medium italic my-4">
+                    Ooiyaa Qr-Code nya hanya berlaku sampai tanggal 28 Juni pukul 23.59 WIB saja yaa, jadi jangan lupa untuk segera ambil hadiahnya! 🎁
                   </p>
                 </div>
-              </div>
-            )
-            : (
-              <p>test</p>
-            )
-          }
+              )
+
+            : (<span></span>)
+            }
+
+            <p className="text-sm text-gray-500 font-medium">
+              Terima kasih sudah mau hadir di acara kami, semoga hadiah ini bisa bermanfaat untuk kakak nya yaa. Jangan lupa untuk selalu bahagia dan sehat selalu yaa! 🥰
+            </p>
+          </div>
         </motion.div>
       </div>
     </motion.div>
