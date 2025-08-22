@@ -38,18 +38,31 @@ export default function Events() {
             return () => clearInterval(timer);
         }, [targetDate]);
         return (
-            <div className="grid grid-cols-4 gap-4 mt-4">
-                {Object.keys(timeLeft).map((interval) => (
-                    <div
-                        key={interval}
-                        className="flex flex-col items-center p-2 bg-white/80 backdrop-blur-sm rounded-xl border border-rose-100"
-                    >
-                        <span className="text-lg font-bold text-rose-600">
-                            {timeLeft[interval]}
-                        </span>
-                        <span className="text-xs text-gray-500 capitalize">{interval}</span>
+            <div>
+                <p className="text-sm text-gray-500">Menuju hari bahagia:</p>
+                {/* Decorative Line */}
+                <div
+                    className="flex items-center justify-center gap-4 mt-6"
+                >
+                    <div className="h-[1px] w-12 bg-rose-200" />
+                    <div className="text-rose-400">
+                        <Heart className="w-4 h-4" fill="currentColor" />
                     </div>
-                ))}
+                    <div className="h-[1px] w-12 bg-rose-200" />
+                </div>
+                <div className="grid grid-cols-4 gap-4 mt-4">
+                    {Object.keys(timeLeft).map((interval) => (
+                        <div
+                            key={interval}
+                            className="flex flex-col items-center p-2 bg-white/80 backdrop-blur-sm rounded-xl border border-rose-100"
+                        >
+                            <span className="text-lg font-bold text-rose-600">
+                                {timeLeft[interval]}
+                            </span>
+                            <span className="text-xs text-gray-500 capitalize">{interval}</span>
+                        </div>
+                    ))}
+                </div>
             </div>
         );
     };
@@ -229,17 +242,6 @@ export default function Events() {
 
                             {/* Content */}
                             <div className="space-y-4 text-center">
-                                <p className="text-sm text-gray-500">Menuju hari bahagia:</p>
-                                {/* Decorative Line */}
-                                <div
-                                    className="flex items-center justify-center gap-4 mt-6"
-                                >
-                                    <div className="h-[1px] w-12 bg-rose-200" />
-                                    <div className="text-rose-400">
-                                        <Heart className="w-4 h-4" fill="currentColor" />
-                                    </div>
-                                    <div className="h-[1px] w-12 bg-rose-200" />
-                                </div>
                                 {/* Countdown Timer */}
                                 <CountdownTimer targetDate={config.event.dateTime} />
                             </div>
