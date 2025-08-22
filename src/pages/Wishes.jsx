@@ -29,6 +29,7 @@ export default function Wishes() {
     const [attendance, setAttendance] = useState('');
     const [invite, setInvite] = useState('');
     const [isOpen, setIsOpen] = useState(false);
+    const [isForm, setIsForm] = useState(true);
     const [guestName, setGuestName] = useState('');
     const profileBackgroundColors = [
         "#F9AFAF", "#A8D8EA", "#FFE0AC", "#B5EAD7", "#C7CEEA",
@@ -148,6 +149,290 @@ export default function Wishes() {
             const err = JSON.parse(error.message)
             if (err.message == 'TypeError: Failed to fetch') {
             }
+
+            setIsForm(false);
+            setWishes([
+                {
+                    "id": 49,
+                    "timestamp": "2025-06-28T05:23:16.935677+00:00",
+                    "name": "X AB Sekolah GeniUS 2022-2023",
+                    "attending": "not-attending",
+                    "message": "Hai ibu finally yh setelah beberapa tahun penantian harapanya terjawab juga. intinya yang terbaik disediakan dalam bahtera rumah tangganya. ibu maaf sekali lg tra bisa hadir intinya doa terbaik untuk ibu dan suami. LOVE U BU DIAN \"-\""
+                },
+                {
+                    "id": 48,
+                    "timestamp": "2025-06-25T23:53:20.958263+00:00",
+                    "name": "Mba Ana",
+                    "attending": "not-attending",
+                    "message": "Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fi khairi, Selamat Febri & Arman"
+                },
+                {
+                    "id": 47,
+                    "timestamp": "2025-06-25T11:50:15.635008+00:00",
+                    "name": "Wildan kj3",
+                    "attending": "not-attending",
+                    "message": "Barakallahu lakum wa baraka alaikum wa jama’a bainakuma fi khair. Semoga Allah melimpahkan keberkahan dan kebahagiaan arman dan istri sekeluarga. Dan menjadi keluarga yang sakinah mawadah warahmah. Hampura man teu bisa datang, haturnuhun tos diondang. "
+                },
+                {
+                    "id": 46,
+                    "timestamp": "2025-06-25T05:51:47.767011+00:00",
+                    "name": "Nikreuh Squad",
+                    "attending": "attending",
+                    "message": "Teman, sahabat, seperjuangan akhirnya menemukan tambatan hati 🤲, lancar berkah barokah buat Arman dan Febri, menjadi keluarga sakinah mawaddah warahmah.\n\nWelcome to the club, menjadi sobat Nikreuh yeuh"
+                },
+                {
+                    "id": 45,
+                    "timestamp": "2025-06-23T07:33:22.00586+00:00",
+                    "name": "Bu Astrid",
+                    "attending": "maybe",
+                    "message": "MasyaAllah bu dian, semoga Allah berikan kelancaran hingga hari H. Semoga bu Dian dan suami kelak dapat menjadi keluarga yang sakinah mawaddah warahmah amiin. "
+                },
+                {
+                    "id": 44,
+                    "timestamp": "2025-06-21T14:17:32.728526+00:00",
+                    "name": "Ahmad Somantri",
+                    "attending": "not-attending",
+                    "message": "Alhamdulillah selamat man , ngiring bungah semoga diberi kelancaran sampe hari h, bisa jadi kepala keluarga yang amanah, dan imam yang baik ."
+                },
+                {
+                    "id": 43,
+                    "timestamp": "2025-06-21T13:43:55.316298+00:00",
+                    "name": "Pak Fisa",
+                    "attending": "maybe",
+                    "message": "Selamat Bu Dian dan calon suami\nSemoga dilancarkan, selamat menempuh hidup baru, Allah merahmati kalian..."
+                },
+                {
+                    "id": 42,
+                    "timestamp": "2025-06-21T13:26:28.695836+00:00",
+                    "name": "Pak Nalendra",
+                    "attending": "not-attending",
+                    "message": "Selamat Bu Dosen SAMAWA, maafkeun belum bisa hadir 🙏"
+                },
+                {
+                    "id": 41,
+                    "timestamp": "2025-06-19T13:32:10.016303+00:00",
+                    "name": "Heruwin",
+                    "attending": "not-attending",
+                    "message": "Doa Terbaik Buat  sahabat/saudaraku.. 🤗\nSalah satu brader terbaik dari dulu sampai skrang 🤘\nOrang Baik pasti bertemu yg Baik Juga, Sekali lagi Selamat berbahagia braderr, Langeng Terus Saudaraku, Hampura teu bisa hadir 🙏😇\n"
+                },
+                {
+                    "id": 40,
+                    "timestamp": "2025-06-19T12:03:41.948457+00:00",
+                    "name": "Ferel A",
+                    "attending": "attending",
+                    "message": "Menjadi keluarga yang berkah dunia dan akhirat pokoknya "
+                },
+                {
+                    "id": 39,
+                    "timestamp": "2025-06-14T11:46:25.093229+00:00",
+                    "name": "Ms Ipeh",
+                    "attending": "attending",
+                    "message": "Masya allah tabarakallah.. Finally my lovely student in the past will get married.. Feeling happy.. May become a samara happy family aamiin ya rabb.. Big hug little girl who has been grown up😘"
+                },
+                {
+                    "id": 38,
+                    "timestamp": "2025-06-14T10:20:54.245239+00:00",
+                    "name": "Meritania",
+                    "attending": "maybe",
+                    "message": "Barakallah Febri dan calon suami! Semoga lancar sampai hari H dan seterusnyaaa \nSehat-sehat yaaaa kalian \nLuv ❤"
+                },
+                {
+                    "id": 37,
+                    "timestamp": "2025-06-14T07:42:17.176069+00:00",
+                    "name": "Bu Elisa Dityani",
+                    "attending": "maybe",
+                    "message": "Aaaaa.. gak nyangka. Selamat bu dian. Tuhan berkati persiapan dan pernikahannua ya.. "
+                },
+                {
+                    "id": 32,
+                    "timestamp": "2025-06-13T03:08:20.099192+00:00",
+                    "name": "MPS Squad",
+                    "attending": "maybe",
+                    "message": "\"Barakallahu laka wa baraka \\'alaika wa jama\\'a bainakuma fi khair.\" \nSemoga Allah memberkahi pernikahanmu, dan menyatukan kalian dalam kebaikan dan menjadikan rumah tangga kalian sakinah, mawaddah, dan rahmah.\n*Arman&Febri*"
+                },
+                {
+                    "id": 31,
+                    "timestamp": "2025-06-09T08:16:56.778322+00:00",
+                    "name": "Guguh Nomilasari",
+                    "attending": "attending",
+                    "message": "Barakallah Febb semoga dilancarkan niat baiknya Hari-H dan seterusnya. Aamiin 🤲🏻"
+                },
+                {
+                    "id": 30,
+                    "timestamp": "2025-06-09T08:13:41.573808+00:00",
+                    "name": "Bu Febriani Dwi Sari",
+                    "attending": "attending",
+                    "message": "MasyaAllah selamat Ibu Dian, semoga diberikan kelancaran dan kemudahan. Selamat menjalankan ibadah terpanjang Bu Dian 🙏🏻🙏🏻"
+                },
+                {
+                    "id": 29,
+                    "timestamp": "2025-06-08T14:24:43.953792+00:00",
+                    "name": "Mba Jula",
+                    "attending": "maybe",
+                    "message": "Masya Allah Tabarakallah...\nSelamat adekkuu.. Semoga diberikan kemudahan dan kelancaran segala prosesinya sampai sah..\nBismillah.. Jodoh dunia dan akhirat.. Menjadi keluarga yang sakinah mawaddah Warahmah\n\nAamiin"
+                },
+                {
+                    "id": 28,
+                    "timestamp": "2025-06-08T10:49:43.947863+00:00",
+                    "name": "Mba Sukma",
+                    "attending": "not-attending",
+                    "message": "Masya Allah barakallah dek Febri dan suami. Semoga menjadi keluarga yang sakinah mawaddah warahmah yaa 🥰🥰🥰🥰"
+                },
+                {
+                    "id": 27,
+                    "timestamp": "2025-06-08T09:04:07.619411+00:00",
+                    "name": "Bu Siska",
+                    "attending": "attending",
+                    "message": "Barakallah... masyallah tabarakallah\nJika Allah sudah berkehendak, pasti terjadi.\nMasyallah... berkah dan bahagia selalu, Bu Dian 💘"
+                },
+                {
+                    "id": 26,
+                    "timestamp": "2025-06-08T08:48:31.608312+00:00",
+                    "name": "Ms. Azalia Herma",
+                    "attending": "not-attending",
+                    "message": "May Allah gives you His bless and happiness until DDay yaaa. Be blessed!"
+                },
+                {
+                    "id": 25,
+                    "timestamp": "2025-06-04T14:21:48.361443+00:00",
+                    "name": "Fauzi & Istri",
+                    "attending": "",
+                    "message": "Bismillah semoga dilancarkan dimudahkan dan kelak setelah berkeluarga menjadi keluarga yang sakinah mawaddah warahmah doa terbaik untuk armaan dan calon nya febri 🤲"
+                },
+                {
+                    "id": 24,
+                    "timestamp": "2025-06-04T12:57:03.76488+00:00",
+                    "name": "Yovanda & Istri",
+                    "attending": "attending",
+                    "message": "Alhamdulillah sahabat sejak SD sudah mau menikah 🤩🤩 semoga menjadi kepala keluarga yang baik untuk keluarganya arman. Semoga menjadi keluarga yang harmonis dan terus bahagia 🤲🤲🤲"
+                },
+                {
+                    "id": 23,
+                    "timestamp": "2025-06-04T07:03:39.171201+00:00",
+                    "name": "April & Adit",
+                    "attending": "attending",
+                    "message": "Selamat ahhh semoga lancar sampe hari H & menjadi keluarga yg samawa aamiinn 🤲🏻🤲🏻🤲🏻🤲🏻"
+                },
+                {
+                    "id": 22,
+                    "timestamp": "2025-06-02T03:07:33.218267+00:00",
+                    "name": "Tuti Ratnasari",
+                    "attending": "maybe",
+                    "message": "Barakallah Peeb😍\nSemoga Allah mudahkan & lancarkan semuanya hingga hari H. Samawa, bahagia dunia akhirat😊\nSelamat ya sdh melewati singlelillah"
+                },
+                {
+                    "id": 21,
+                    "timestamp": "2025-05-29T04:06:48.178945+00:00",
+                    "name": "Dian Nafiah",
+                    "attending": "maybe",
+                    "message": "Barakallah febri🥰😍 semoga diberi kemudahan dan kelancaran sampai hari H. Bisa menjadi keluarga sakinah mawaddah wa rahmah❤️❤️"
+                },
+                {
+                    "id": 20,
+                    "timestamp": "2025-05-29T01:16:30.447228+00:00",
+                    "name": "Kavita Febriana Putri",
+                    "attending": "not-attending",
+                    "message": "MasyaAllah\nBarakallah pep 😊\n\nSemoga dilancarkan dan dimudahkan prosesnya\nJadi keluarga yg sakinnah mawaddah dan warrahmah 🤲🏻"
+                },
+                {
+                    "id": 19,
+                    "timestamp": "2025-05-29T01:05:48.18467+00:00",
+                    "name": "Ahmad Syarief",
+                    "attending": "",
+                    "message": "Barakallah kak feb! Semoga dimudahkan semuanyaaa, aaamiiin ya Allah "
+                },
+                {
+                    "id": 18,
+                    "timestamp": "2025-05-27T02:08:08.488385+00:00",
+                    "name": "Maulana Yusuf K",
+                    "attending": "maybe",
+                    "message": "Barakallahu lakuma wa baraka alaikuma wa jama'a bainakuma fi khair. Selamat Arman dan Teh Febri semoga selalu diberi kemudahan, kelancaran, dan keberkahan disetiap niat, momen, dan langkahnya. Senantiasa saling jaga, saling dukung, dan saling mendoakan satusama lain ya. Turut Bahagia !!"
+                },
+                {
+                    "id": 17,
+                    "timestamp": "2025-05-25T05:50:51.139541+00:00",
+                    "name": "Desita Kamila Ulfa",
+                    "attending": "not-attending",
+                    "message": "MasyaAllah. Bismillah semoga Allah SWT memberikan kelancaran dan keberkahan sampai hari H dan seterusnya. Selamat menjalankan ibadah seumur hidup ya febb caluyyy dan suami, semoga menjadi keluarga sakinah mawaddah warahmah dunia dan akhirat till jannah. Aamiin ya Rabbal Alamin 🤲🤲🤲"
+                },
+                {
+                    "id": 16,
+                    "timestamp": "2025-05-25T04:34:56.983378+00:00",
+                    "name": "Mba Anis",
+                    "attending": "maybe",
+                    "message": "Barakallah ya adikk kost kuuuuuu\nSemoga allah mudahkan urusannya, terharuuuuuuuu ikut bahagia. Semoga bisa hadir kesana aamiin\n"
+                },
+                {
+                    "id": 15,
+                    "timestamp": "2025-05-23T01:52:01.306052+00:00",
+                    "name": "Putri Kurnia Villta",
+                    "attending": "maybe",
+                    "message": "Semoga lancar sampai hari H dan petualangan selanjutnya ya bifeb❤️🤗"
+                },
+                {
+                    "id": 14,
+                    "timestamp": "2025-05-21T11:05:23.884689+00:00",
+                    "name": "Larassakti Kusuma",
+                    "attending": "not-attending",
+                    "message": "MasyaAllah barakallah pebrikuuu.. akhirnyaaa berlabuh jugaaa, bismillah Allah mudahkan semuanyaaaa :)"
+                },
+                {
+                    "id": 13,
+                    "timestamp": "2025-05-20T11:07:16.652769+00:00",
+                    "name": "Artika Rizki N",
+                    "attending": "not-attending",
+                    "message": "MaasyaAllah tabarakallah bek, semoga lancar sampai hari H dan seterusnya, dan semoga Allah memberkahi kehidupan pernikahan kalian yaa 🥰🥰🥰"
+                },
+                {
+                    "id": 12,
+                    "timestamp": "2025-05-19T05:17:31.721926+00:00",
+                    "name": "Usnida Umma Zahra",
+                    "attending": "attending",
+                    "message": "Baarakallaah Febri dan Arman..\nSemoga Allah berikan kemudahan, kelancaran, dan keberkahan selama perjalanan menuju akad, saat akad, dan kehidupan pasca akad. ❤️🥰"
+                },
+                {
+                    "id": 11,
+                    "timestamp": "2025-05-19T05:15:44.034731+00:00",
+                    "name": "Usnida Umma Zahra",
+                    "attending": "attending",
+                    "message": "Baarakallaah Febrii dan Arman.. Semoga Allah berikan kemudahan, kelancaran, dan keberkahan selama perjalanan menuju hari H, s"
+                },
+                {
+                    "id": 10,
+                    "timestamp": "2025-05-19T05:06:40.532963+00:00",
+                    "name": "Jannatul Firdaus dan Suami🤍",
+                    "attending": "attending",
+                    "message": "MasyaAllah tabarakallah my luv pepiii 🤍🤍🤍🤍 semoga Allah melancarkan niat baik kalian berdua dan dijadikan keluarga ya sakinah mawaddah warahmah 🤍 "
+                },
+                {
+                    "id": 9,
+                    "timestamp": "2025-05-19T02:03:13.75659+00:00",
+                    "name": "Nur'aini Dian P",
+                    "attending": "not-attending",
+                    "message": "Masyaa Allah, Allahumma Bariik. May Allah make everything easy for both of you 💐"
+                },
+                {
+                    "id": 8,
+                    "timestamp": "2025-05-19T01:41:18.03418+00:00",
+                    "name": "Windy Yuniarti dan Adika Putra P",
+                    "attending": "attending",
+                    "message": "Semoga lancar sampai hari H, bahagia dunia akhirat selamanya aamiin. 🤍"
+                },
+                {
+                    "id": 7,
+                    "timestamp": "2025-05-19T01:14:01.267417+00:00",
+                    "name": "Widha Puspa Tanjung",
+                    "attending": "attending",
+                    "message": "MasyaAllah tabarakallah... semoga dilimpahkan keberkahan selalu Febri dan pasangan 🤭🤭🤭"
+                },
+                {
+                    "id": 6,
+                    "timestamp": "2025-05-18T09:07:10.625249+00:00",
+                    "name": "Natasha Amalia dan Suami🤍",
+                    "attending": "attending",
+                    "message": "Barakallah pepita dan kang Arman! Semoga dimudahkan perjalanan baru nya 🤍"
+                }
+            ])
         }
     };
 
@@ -343,128 +628,130 @@ export default function Wishes() {
                     </AnimatePresence>
                 </div>
                 {/* Wishes Form */}
-                <div
-                    className="max-w-2xl mx-auto mt-12"
-                >
-                    <form onSubmit={handleSubmitWish} className="relative">
-                        <div className="backdrop-blur-sm bg-white/80 p-6 rounded-2xl border border-rose-100/50 shadow-lg">
-                            <div className='space-y-2'>
-                                {/* Name Input */}
-                                {
-                                    (!guestName || invite?.is_group) ?
-                                    (
-                                        <div className="space-y-2">
-                                            <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
-                                                <User className="w-4 h-4" />
-                                                <span>Nama Kamu</span>
+                {isForm && 
+                    <div
+                        className="max-w-2xl mx-auto mt-12"
+                    >
+                        <form onSubmit={handleSubmitWish} className="relative">
+                            <div className="backdrop-blur-sm bg-white/80 p-6 rounded-2xl border border-rose-100/50 shadow-lg">
+                                <div className='space-y-2'>
+                                    {/* Name Input */}
+                                    {
+                                        (!guestName || invite?.is_group) ?
+                                        (
+                                            <div className="space-y-2">
+                                                <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
+                                                    <User className="w-4 h-4" />
+                                                    <span>Nama Kamu</span>
+                                                </div>
+                                                <input
+                                                    type="text"
+                                                    placeholder="Masukan nama kamu..."
+                                                    className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-rose-100 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 transition-all duration-200 text-gray-700 placeholder-gray-400"
+                                                    required
+                                                    value={newName}
+                                                    onChange={(e) => setNewName(e.target.value)}
+                                                />
                                             </div>
-                                            <input
-                                                type="text"
-                                                placeholder="Masukan nama kamu..."
-                                                className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-rose-100 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 transition-all duration-200 text-gray-700 placeholder-gray-400"
-                                                required
-                                                value={newName}
-                                                onChange={(e) => setNewName(e.target.value)}
-                                            />
-                                        </div>
-                                    )
-                                    :
-                                    (
-                                        null
-                                    )
-                                }
+                                        )
+                                        :
+                                        (
+                                            null
+                                        )
+                                    }
 
-                                <div
-                                    className="space-y-2 relative"
-                                >
-                                    <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
-                                        <Calendar className="w-4 h-4" />
-                                        <span>Apakah <ShowGuest /> akan hadir?</span> <ShowAttendanceReaction />
-                                    </div>
-
-                                    {/* Custom Select Button */}
-                                    <button
-                                        type="button"
-                                        onClick={() => setIsOpen(!isOpen)}
-                                        className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-rose-100 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 transition-all duration-200 text-left flex items-center justify-between"
+                                    <div
+                                        className="space-y-2 relative"
                                     >
-                                        <span className={attendance ? 'text-gray-700' : 'text-gray-400'}>
-                                            {attendance ?
-                                                options.find(opt => opt.value === attendance)?.label
-                                                : 'Pilih kehadiran...'}
-                                        </span>
-                                        <ChevronDown
-                                            className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${isOpen ? 'transform rotate-180' : ''
-                                                }`}
-                                        />
-                                    </button>
+                                        <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
+                                            <Calendar className="w-4 h-4" />
+                                            <span>Apakah <ShowGuest /> akan hadir?</span> <ShowAttendanceReaction />
+                                        </div>
 
-                                    {/* Dropdown Options */}
-                                    <AnimatePresence>
-                                        {isOpen && (
-                                            <motion.div
-                                                initial={{ opacity: 0, y: -10 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, y: -10 }}
-                                                className="absolute z-10 w-full mt-1 bg-white rounded-xl shadow-lg border border-rose-100 overflow-hidden"
-                                            >
-                                                {options.map((option) => (
-                                                    <motion.button
-                                                        key={option.value}
-                                                        type="button"
-                                                        onClick={() => {
-                                                            setAttendance(option.value);
-                                                            setIsOpen(false);
-                                                        }}
-                                                        whileHover={{ backgroundColor: 'rgb(255, 241, 242)' }}
-                                                        className={`w-full px-4 py-2.5 text-left transition-colors
-                                        ${attendance === option.value
-                                                                ? 'bg-rose-50 text-rose-600'
-                                                                : 'text-gray-700 hover:bg-rose-50'
-                                                            }`}
-                                                    >
-                                                        {option.label}
-                                                    </motion.button>
-                                                ))}
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
-                                </div>
-                                {/* Wish Textarea */}
-                                <div className="space-y-2">
-                                    <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
-                                        <MessageCircle className="w-4 h-4" />
-                                        <span>Harapan <ShowGuest /></span>
+                                        {/* Custom Select Button */}
+                                        <button
+                                            type="button"
+                                            onClick={() => setIsOpen(!isOpen)}
+                                            className="w-full px-4 py-2.5 rounded-xl bg-white/50 border border-rose-100 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 transition-all duration-200 text-left flex items-center justify-between"
+                                        >
+                                            <span className={attendance ? 'text-gray-700' : 'text-gray-400'}>
+                                                {attendance ?
+                                                    options.find(opt => opt.value === attendance)?.label
+                                                    : 'Pilih kehadiran...'}
+                                            </span>
+                                            <ChevronDown
+                                                className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${isOpen ? 'transform rotate-180' : ''
+                                                    }`}
+                                            />
+                                        </button>
+
+                                        {/* Dropdown Options */}
+                                        <AnimatePresence>
+                                            {isOpen && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, y: -10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -10 }}
+                                                    className="absolute z-10 w-full mt-1 bg-white rounded-xl shadow-lg border border-rose-100 overflow-hidden"
+                                                >
+                                                    {options.map((option) => (
+                                                        <motion.button
+                                                            key={option.value}
+                                                            type="button"
+                                                            onClick={() => {
+                                                                setAttendance(option.value);
+                                                                setIsOpen(false);
+                                                            }}
+                                                            whileHover={{ backgroundColor: 'rgb(255, 241, 242)' }}
+                                                            className={`w-full px-4 py-2.5 text-left transition-colors
+                                            ${attendance === option.value
+                                                                    ? 'bg-rose-50 text-rose-600'
+                                                                    : 'text-gray-700 hover:bg-rose-50'
+                                                                }`}
+                                                        >
+                                                            {option.label}
+                                                        </motion.button>
+                                                    ))}
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
                                     </div>
-                                    <textarea
-                                        placeholder="Kirimkan harapan dan doa untuk kedua mempelai..."
-                                        className="w-full h-32 p-4 rounded-xl bg-white/50 border border-rose-100 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 resize-none transition-all duration-200"
-                                        required
-                                        value={newWish}
-                                        onChange={(e) => setNewWish(e.target.value)}
-                                    />
+                                    {/* Wish Textarea */}
+                                    <div className="space-y-2">
+                                        <div className="flex items-center space-x-2 text-gray-500 text-sm mb-1">
+                                            <MessageCircle className="w-4 h-4" />
+                                            <span>Harapan <ShowGuest /></span>
+                                        </div>
+                                        <textarea
+                                            placeholder="Kirimkan harapan dan doa untuk kedua mempelai..."
+                                            className="w-full h-32 p-4 rounded-xl bg-white/50 border border-rose-100 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-opacity-50 resize-none transition-all duration-200"
+                                            required
+                                            value={newWish}
+                                            onChange={(e) => setNewWish(e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="flex items-center justify-between mt-4">
+                                    <div className="flex items-center space-x-2 text-gray-500">
+                                        <Smile className="w-5 h-5" />
+                                        <span className="text-sm">Berikan Doa Anda</span>
+                                    </div>
+                                    <motion.button
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
+                                        className={`flex items-center space-x-2 px-6 py-2.5 rounded-xl text-white font-medium transition-all duration-200
+                        ${isSubmitting
+                                                ? 'bg-gray-300 cursor-not-allowed'
+                                                : 'bg-rose-500 hover:bg-rose-600'}`}
+                                    >
+                                        <Send className="w-4 h-4" />
+                                        <span>{isSubmitting ? 'Sedang Mengirim...' : 'Kirimkan Doa'}</span>
+                                    </motion.button>
                                 </div>
                             </div>
-                            <div className="flex items-center justify-between mt-4">
-                                <div className="flex items-center space-x-2 text-gray-500">
-                                    <Smile className="w-5 h-5" />
-                                    <span className="text-sm">Berikan Doa Anda</span>
-                                </div>
-                                <motion.button
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    className={`flex items-center space-x-2 px-6 py-2.5 rounded-xl text-white font-medium transition-all duration-200
-                    ${isSubmitting
-                                            ? 'bg-gray-300 cursor-not-allowed'
-                                            : 'bg-rose-500 hover:bg-rose-600'}`}
-                                >
-                                    <Send className="w-4 h-4" />
-                                    <span>{isSubmitting ? 'Sedang Mengirim...' : 'Kirimkan Doa'}</span>
-                                </motion.button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                        </form>
+                    </div>
+                }
             </div>
         </section>
     </>)
